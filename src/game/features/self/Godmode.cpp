@@ -27,5 +27,5 @@ namespace YimMenu::Features
 		}
 	};
 
-	static Godmode _Godmode{"godmode", "Bat tu", "Chan toan bo sat thuong nhan vao"};
+	static Godmode _Godmode{"godmode", "Bất Tử", "Blocks all incoming damage"};
 }
