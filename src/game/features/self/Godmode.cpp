@@ -50,7 +50,7 @@ namespace YimMenu::Features
 
 	static Godmode _Godmode{
 		"godmode",
-		base64_decode("QsOhdCB0xINu").c_str(),           // "Bất tử"
-		base64_decode("Q2jDoW4gdG9hbiBow7kgc2F0IHRodeG5nIG5ow6FuIHbhuqNv").c_str() // "Chặn toàn bộ sát thương nhận vào"
+		base64_decode("QuG6pXQgdOG7rQ==").c_str(),           // "Bất tử"
+		base64_decode("Q2jhurduIHRvw6BuIGLhu5kgc8OhdCB0aMawxqFuZyBuaOG6rW4gdsOgbw==").c_str() // "Chặn toàn bộ sát thương nhận vào"
 	};
 }
