@@ -102,5 +102,5 @@ namespace YimMenu::Features
 		}
 	};
 
-	static HarassPlayers _HarassPlayers{"harassplayers", "Harass Players", "Spoofs your position to make it appear as if you're next to all the players in the session at all times. Use with caution"};
+	static HarassPlayers _HarassPlayers{"harassplayers", "Quấy rối người chơi", "Giả lập vị trí của bạn để trông như lúc nào bạn cũng đứng cạnh tất cả mọi người trong phòng. Hãy cẩn thận khi sử dụng tính năng này."};
 }

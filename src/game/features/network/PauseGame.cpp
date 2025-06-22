@@ -18,5 +18,5 @@ namespace YimMenu::Features
 		}
 	};
 
-	static PauseGame _PauseGame{"pausegame", "Pause Game", "Allows you to pause the game in online (local only)."};
+	static PauseGame _PauseGame{"pausegame", "Tạm dừng trò chơi", "Cho phép bạn tạm dừng game khi chơi online (chỉ áp dụng trên máy của bạn)."};
 }

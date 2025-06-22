@@ -18,5 +18,5 @@ namespace YimMenu::Features
 		}
 	};
 
-	static ScriptHostKick _ScriptHostKick{"shkick", "Script Host Kick", "Kicks the player by faking a vote kick"};
+	static ScriptHostKick _ScriptHostKick{"shkick", "Đuổi bằng quyền chủ phòng", "Buộc người chơi rời phòng bằng cách giả lập biểu quyết đuổi"};
 }

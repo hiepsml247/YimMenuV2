@@ -25,5 +25,5 @@ namespace YimMenu::Features
 		}
 	};
 
-	static FreemodeStateKick _FreemodeStateKick{"endkick", "Freemode State Kick", "Kicks the player by forcing them to end the freemode session"};
+	static FreemodeStateKick _FreemodeStateKick{"endkick", "Đá khỏi chế độ tự do", "Buộc người chơi rời khỏi phòng tự do"};
 }

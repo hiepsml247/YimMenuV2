@@ -35,5 +35,5 @@ namespace YimMenu::Features
 		}
 	};
 
-	static Spectate _Spectate{"spectate", "Spectate", "Spectates the selected player"};
+	static Spectate _Spectate{"spectate", "Xem người chơi", "Theo dõi hoạt động của người chơi bạn chọn"};
 }

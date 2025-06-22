@@ -20,12 +20,12 @@ namespace YimMenu::Features
 				if (*phone_call_state.As<int*>() != 0 && *phone_call_state.As<int*>() != 5 && *phone_call_state.As<int*>() != 6
 				    && *is_phone_call_in_progress.As<bool*>() && *is_incoming_call.As<bool*>())
 				{
-					LOGF(VERBOSE, "SilencePhoneCalls::OnTick(): Skipped phone call from character {}", *calling_character.As<int*>());
+					LOGF(VERBOSE, "SilencePhoneCalls::OnTick(): Đã bỏ qua cuộc gọi của nhân vật {}", *calling_character.As<int*>());
 					*phone_call_state.As<int*>() = 6;
 				}
 			}
 		}
 	};
 
-	static SilencePhonecalls _SilencePhonecalls{"nocalls", "Silence Phone Calls", "Automatically silences all incoming calls"};
+	static SilencePhonecalls _SilencePhonecalls{"nocalls", "Tắt tiếng cuộc gọi", "Tự động tắt tiếng tất cả các cuộc gọi đến"};
 }

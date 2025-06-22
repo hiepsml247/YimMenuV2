@@ -13,5 +13,5 @@ namespace YimMenu::Features
 		}
 	};
 
-	static HostKick _HostKick{"HKick", "Host Kick", "Only available as host and the target is unblockable"};
+	static HostKick _HostKick{"HKick", "Đuổi với quyền chủ phòng", "Chỉ dùng được khi bạn là chủ phòng và mục tiêu không thể chặn được"};
 }

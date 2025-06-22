@@ -23,7 +23,7 @@ namespace YimMenu::Features
 		}
 	};
 
-	static FastJoin _FastJoin{"fastjoin", "Fast Join", "Attempts to improve join speed by loading host broadcast variables asynchronously. This may cause certain jobs to break, use with caution"};
+	static FastJoin _FastJoin{"fastjoin", "Nhanh vào phòng", "Cố gắng tăng tốc độ vào phòng bằng cách tải dữ liệu của chủ phòng song song. Tuy nhiên, tính năng này có thể khiến một số nhiệm vụ bị lỗi, hãy cân nhắc trước khi sử dụng."};
 
 	static void BroadcastHook(rage::scrNativeCallContext* ctx)
 	{

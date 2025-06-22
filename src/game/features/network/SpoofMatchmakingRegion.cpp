@@ -16,7 +16,7 @@ namespace YimMenu::Features
 	    {8, "Unknown"},
 	};
 
-	static ListCommand _SpoofedRegion{"mmregion", "Matchmaking Region", "Matchmaking region to spoof to", g_RegionCodes, 0};
+	static ListCommand _SpoofedRegion{"mmregion", "Khu vực ghép trận", "Khu vực sẽ được giả lập khi ghép trận", g_RegionCodes, 0};
 
 	class SpoofMatchmakingRegion : public LoopedCommand
 	{
@@ -40,5 +40,5 @@ namespace YimMenu::Features
 		}
 	};
 
-	static SpoofMatchmakingRegion _SpoofMatchmakingRegion{"spoofmmregion", "Spoof Matchmaking Region", "Change the region you matchmake in to the specified value"};
+	static SpoofMatchmakingRegion _SpoofMatchmakingRegion{"spoofmmregion", "Giả lập vùng ghép trận", "Thay đổi vùng ghép trận của bạn thành khu vực đã chọn"};
 }

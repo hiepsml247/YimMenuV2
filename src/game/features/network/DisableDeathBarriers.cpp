@@ -28,5 +28,5 @@ namespace YimMenu::Features
 		}
 	};
 
-	static DisableDeathBarriers _DisableDeathBarriers{"disabledeathbarriers", "Disable Death Barriers", "Disables death barriers found under the map. This also prevents dying randomly when spectating someone", true};
+	static DisableDeathBarriers _DisableDeathBarriers{"disabledeathbarriers", "Vô hiệu hóa khu vực chết", "Tắt ranh giới tử vong dưới bản đồ, đồng thời tránh bị chết bất ngờ khi theo dõi người khác.", true};
 }

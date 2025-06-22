@@ -21,5 +21,5 @@ namespace YimMenu::Features
 		}
 	};
 
-	static ForceScriptHost _ForceScriptHost{"forcescripthost", "Force Script Host", "Forces you to become freemode script host. Note that this might break some missions."};
+	static ForceScriptHost _ForceScriptHost{"forcescripthost", "Bắt buộc làm chủ phòng", "Bạn sẽ làm chủ phòng ở chế độ tự do. Một số nhiệm vụ có thể gặp lỗi."};
 }
