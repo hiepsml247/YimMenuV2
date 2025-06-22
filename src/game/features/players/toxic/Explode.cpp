@@ -14,5 +14,5 @@ namespace YimMenu::Features
 		}
 	};
 
-	static Explode _Explode{"explode", "Explode", "Blows the player up"};
+	static Explode _Explode{"explode", "Nổ người chơi", "Làm người chơi nổ tung"};
 }

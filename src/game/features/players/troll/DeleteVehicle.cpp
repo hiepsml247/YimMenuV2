@@ -13,5 +13,5 @@ namespace YimMenu::Features
 		}
 	};
 
-	static DeleteVehicle _DeleteVehicle{"deleteveh", "Delete Vehicle", "Deletes the vehicle the player is in"};
+	static DeleteVehicle _DeleteVehicle{"deleteveh", "Xóa xe", "Xóa chiếc xe mà người chơi đang sử dụng"};
 }

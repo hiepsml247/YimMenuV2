@@ -21,5 +21,5 @@ namespace YimMenu::Features
 		}
 	};
 
-	static CeoKick _CeoKick{"ceokick", "CEO Kick", "Kicks the player from their organization or motorcycle club"};
+	static CeoKick _CeoKick{"ceokick", "Đuổi khỏi CEO", "Người chơi sẽ bị loại ra khỏi CEO hoặc Motorcycle Club họ đang tham gia"};
 }

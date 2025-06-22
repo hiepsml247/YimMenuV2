@@ -6,8 +6,8 @@
 
 namespace YimMenu::Features
 {
-	static IntCommand _BountyAmount{"bountyamount", "Bounty Amount", "The bounty amount to set", 1, 10000, 9000};
-	static BoolCommand _AnonymousBounty{"anonymousbounty", "Anonymous Bounty", "Sets the bounty as anonymous"};
+	static IntCommand _BountyAmount{"bountyamount", "Đặt tiền thưởng truy nã", "Mức thưởng truy nã cần thiết lập", 1, 1000000, 9000};
+	static BoolCommand _AnonymousBounty{"anonymousbounty", "Truy nã ẩn danh", "Đặt tiền truy nã dưới dạng ẩn danh"};
 
 	class SetBounty : public PlayerCommand
 	{
@@ -27,5 +27,5 @@ namespace YimMenu::Features
 		}
 	};
 
-	static SetBounty _SetBounty{"setbounty", "Set Bounty", "Sets the specified bounty to the player"};
+	static SetBounty _SetBounty{"setbounty", "Đặt truy nã", "Đặt số tiền truy nã cho người chơi đã chọn"};
 }

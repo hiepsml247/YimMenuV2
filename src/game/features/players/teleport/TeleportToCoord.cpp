@@ -4,7 +4,7 @@
 
 namespace YimMenu::Features
 {
-	static Vector3Command _PlayerTeleportCoordinate{"playertpcoord", "Player Teleport Coords", "The coordinates to teleport the player to"};
+	static Vector3Command _PlayerTeleportCoordinate{"playertpcoord", "Tọa độ cần dịch chuyển", "Nơi người chơi sẽ đến khi dịch chuyển"};
 
 	class TeleportToCoord : public PlayerCommand
 	{
@@ -16,5 +16,5 @@ namespace YimMenu::Features
 		}
 	};
 
-	static TeleportToCoord _TeleportToCoord{"tpplayertocoord", "Teleport Player To Coord", "Teleports the player to the specified coordinates"};
+	static TeleportToCoord _TeleportToCoord{"tpplayertocoord", "Dịch chuyển đến tọa độ", "Đưa người chơi tới điểm bạn chỉ định"};
 }

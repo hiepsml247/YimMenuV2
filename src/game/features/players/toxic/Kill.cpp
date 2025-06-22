@@ -13,5 +13,5 @@ namespace YimMenu::Features
 		}
 	};
 
-	static Kill _Kill{"kill", "Kill", "Kills the player"};
+	static Kill _Kill{"kill", "Giết người chơi", "Loại bỏ người chơi khỏi trận"};
 }
