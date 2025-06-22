@@ -111,18 +111,24 @@ namespace YimMenu
 	static ImFont* CreateFontWithCyrillicSupport(ImGuiIO& io, float size)
 	{
 		ImFontConfig FontCfg{};
-		FontCfg.FontDataOwnedByAtlas = false;
+    		FontCfg.FontDataOwnedByAtlas = false;
 
-		auto font = io.Fonts->AddFontFromMemoryTTF(const_cast<std::uint8_t*>(Fonts::MainFont), sizeof(Fonts::MainFont), size, &FontCfg, io.Fonts->GetGlyphRangesDefault());
-
-		// just use Arial for Cyrillic
-
-		FontCfg.MergeMode = true;
-		io.Fonts->AddFontFromFileTTF((std::filesystem::path(std::getenv("SYSTEMROOT")) / "Fonts" / "arial.ttf").string().c_str(), size, &FontCfg, GetGlyphRangesCyrillicOnly());
-
-		io.Fonts->Build();
-
-		return font;
+		auto font = io.Fonts->AddFontFromMemoryTTF(
+	             const_cast<std::uint8_t*>(Fonts::MainFont),
+	             sizeof(Fonts::MainFont),
+	             size,
+	             &FontCfg,
+		     io.Fonts->GetGlyphRangesVietnamese()
+	        );
+	
+	        // Nếu muốn merge Arial vào cho chắc
+	        FontCfg.MergeMode = true;
+	        io.Fonts->AddFontFromFileTTF(
+	            (std::filesystem::path(std::getenv("SYSTEMROOT")) / "Fonts" / "arial.ttf").string().c_str(),
+	            size, &FontCfg, io.Fonts->GetGlyphRangesVietnamese());
+	
+	       io.Fonts->Build();
+	       return font;
 	}
 
 	void Menu::SetupFonts()
