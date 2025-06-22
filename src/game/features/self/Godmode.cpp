@@ -27,5 +27,5 @@ namespace YimMenu::Features
 		}
 	};
 
-	static Godmode _Godmode{"godmode", "Bất tử", "Chặn toàn bộ sát thương nhận vào"};
+	static Godmode _Godmode{"godmode", L"Bất tử", L"Chặn toàn bộ sát thương nhận vào"};
 }
