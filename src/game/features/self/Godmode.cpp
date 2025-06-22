@@ -27,5 +27,5 @@ namespace YimMenu::Features
 		}
 	};
 
-	static Godmode _Godmode{"godmode", "God Mode", "Blocks all incoming damage"};
+	static Godmode _Godmode{"godmode", "Bất tử", "Chặn toàn bộ sát thương nhận vào"};
 }
