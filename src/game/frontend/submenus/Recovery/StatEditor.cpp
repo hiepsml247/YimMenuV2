@@ -423,11 +423,20 @@ namespace YimMenu::Submenus
 				FiberPool::Push([clip_text] {
 					for (auto line : clip_text | std::ranges::views::split('\n'))
 					{
-						auto components = TrimString(std::string_view{line.begin(), line.end()}) | std::ranges::views::split('=') | std::ranges::to<std::vector<std::string>>();
+						std::string sv_line(line.begin(), line.end());
+						sv_line = std::string(TrimString(sv_line));
+
+						// Tách chuỗi theo dấu '=' thành 2 phần
+						std::vector<std::string> components;
+						std::stringstream ss(sv_line);
+						std::string item;
+						while (std::getline(ss, item, '=')) {
+							components.push_back(item);
+						}
 
 						if (components.size() != 2)
 						{
-							LOGF(WARNING, "Load From Clipboard: line \"{}\" is malformed", std::string_view{line.begin(), line.end()});
+							LOGF(WARNING, "Load From Clipboard: line \"{}\" is malformed", sv_line);
 							continue;
 						}
 
