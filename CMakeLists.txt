@@ -21,6 +21,8 @@ file(GLOB_RECURSE SRC_FILES
 add_library(${PROJECT_NAME} MODULE ${SRC_FILES})
 set_property(TARGET ${PROJECT_NAME} PROPERTY CXX_STANDARD 23)
 
+set_target_properties(${PROJECT_NAME} PROPERTIES OUTPUT_NAME "ChichSML")
+
 target_precompile_headers(${PROJECT_NAME} PUBLIC "${SRC_DIR}/common.hpp")
 
 add_compile_definitions(
