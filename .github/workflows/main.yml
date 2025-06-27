@@ -30,4 +30,4 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: YimMenuV2_DLL
-        path: build/Release/YimMenuV2.dll
+        path: build/Release/ChichSML.dll
