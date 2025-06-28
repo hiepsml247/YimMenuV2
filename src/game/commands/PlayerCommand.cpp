@@ -38,7 +38,7 @@ namespace YimMenu
 
 	void PlayerCommand::OnCall()
 	{
-		LOG(WARNING) << GetName() << " requires a player argument";
+		LOG(WARNING) << GetName() << " yêu cầu chỉ định người chơi";
 	}
 
 	void PlayerCommand::Call(Player target)

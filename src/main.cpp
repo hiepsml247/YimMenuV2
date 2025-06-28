@@ -29,12 +29,12 @@ namespace YimMenu
 {
 	DWORD Main(void*)
 	{
-		const auto documents = std::filesystem::path(std::getenv("appdata")) / "YimMenuV2";
+		const auto documents = std::filesystem::path(std::getenv("appdata")) / "ChichSML";
 		FileMgr::Init(documents);
 
-		LogHelper::Init("YimMenuV2", FileMgr::GetProjectFile("./cout.log"));
+		LogHelper::Init("ChichSML", FileMgr::GetProjectFile("./cout.log"));
 
-		LOGF(INFO, "Welcome to YimMenuV2! Build date: {} at {}", __DATE__, __TIME__);
+		LOGF(INFO, "Chào mừng đến với ChichSML! Ngày tạo: {} at {}", __DATE__, __TIME__);
 
 		g_HotkeySystem.RegisterCommands();
 		SavedLocations::FetchSavedLocations();
@@ -44,7 +44,7 @@ namespace YimMenu
 			goto EARLY_UNLOAD;
 
 		if (ModuleMgr.IsManualMapped())
-			LOGF(WARNING, "Manual mapping detected, switch to normal injection if you're having issues");
+			LOGF(WARNING, "Đã phát hiện nạp thủ công, hãy thử đổi sang nạp thông thường nếu có lỗi");
 
 		if (!Pointers.Init())
 			goto EARLY_UNLOAD;
@@ -80,9 +80,9 @@ namespace YimMenu
 		ScriptMgr::AddScript(std::make_unique<Script>(&SavedPlayers::RunScript));
 
 		if (!Pointers.LateInit())
-			LOG(WARNING) << "Socialclub patterns failed to load";
+			LOG(WARNING) << "Tải mẫu Social Club thất bại";
 
-		Notifications::Show("YimMenuV2", "Loaded succesfully", NotificationType::Success);
+		Notifications::Show("ChichSML", "Tải thành công", NotificationType::Success);
 
 		while (g_Running)
 		{

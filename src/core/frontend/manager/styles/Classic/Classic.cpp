@@ -34,7 +34,7 @@ namespace YimMenu
 			}
 			ImGui::EndChild();
 
-			ImGui::Text("YimMenuV2");
+			ImGui::Text("ChichSML");
 
 			pos.y -= 28;
 			ImGui::SetCursorPos(ImVec2(pos.x + 130, pos.y));

@@ -93,5 +93,7 @@
         "variant": "cpp",
         "xtree": "cpp"
     },
-    "C_Cpp.default.configurationProvider": "maxmitti.cmake-tools-fork"
+    "C_Cpp.default.configurationProvider": "maxmitti.cmake-tools-fork",
+    "editor.formatOnSave": false,
+    "editor.fontSize": 17
 }
