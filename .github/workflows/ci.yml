@@ -63,7 +63,7 @@ jobs:
         run: cmake --build ./build --config RelWithDebInfo --target YimMenuV2 --
 
       - name: Check if DLL got built
-        run: if [ ! -f build/libYimMenuV2.dll ]; then exit 1; fi
+        run: if [ ! -f build/libChichSML.dll ]; then exit 1; fi
 
       - name: Rename DLL to libYimMenuV2-dev-{GITHUB_SHA}.dll
         run: |
