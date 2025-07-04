@@ -67,8 +67,8 @@ jobs:
 
       - name: Rename DLL to libYimMenuV2-dev-{GITHUB_SHA}.dll
         run: |
-          mv libYimMenuV2.dll libYimMenuV2-dev-${{github.sha}}.dll
-          mv libYimMenuV2.pdb libYimMenuV2-dev-${{github.sha}}.pdb
+          mv libChichSML.dll libYimMenuV2-dev-${{github.sha}}.dll
+          mv libChichSML.pdb libYimMenuV2-dev-${{github.sha}}.pdb
         working-directory: build/
 
       - name: Upload Artifact
