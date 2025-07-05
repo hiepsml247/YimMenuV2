@@ -140,14 +140,14 @@ namespace YimMenu
 		const auto ordinalOffsets = m_Base.Add(exportDirectory->AddressOfNameOrdinals).As<uint16_t*>();
 		const auto funcOffsets = m_Base.Add(exportDirectory->AddressOfFunctions).As<DWORD*>();
 
-		for (std::size_t i = 0; i < exportDirectory->NumberOfFunctions; i++)
+		for (std::size_t i = 0; i < exportDirectory->NumberOfNames; i++)
 		{
 			if constexpr (std::is_convertible_v<T, int>)
 			{
-				if (ordinalOffsets[i] != symbol)
+				if (exportDirectory->Base + ordinalOffsets[i] != symbol)
 					continue;
 
-				return m_Base.Add(funcOffsets[i]).As<R>();
+				return m_Base.Add(funcOffsets[ordinalOffsets[i]]).As<R>();
 			}
 			else if constexpr (std::is_convertible_v<T, std::string_view>)
 			{
@@ -155,7 +155,7 @@ namespace YimMenu
 				if (strcmp(functionName, symbol.data()))
 					continue;
 
-				return m_Base.Add(funcOffsets[i]).As<R>();
+				return m_Base.Add(funcOffsets[ordinalOffsets[i]]).As<R>();
 			}
 			else
 			{
