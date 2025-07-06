@@ -16,5 +16,5 @@ namespace YimMenu::Features
 		}
 	};
 
-	static Heal _Heal{"heal", "Heal", "Restores your health and armour."};
+	static Heal _Heal{"heal", "Hồi máu và giáp", "Phục hồi toàn bộ máu và áo giáp"};
 }

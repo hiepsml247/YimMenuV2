@@ -59,8 +59,8 @@ namespace YimMenu::Features
 		}
 	};
 
-	static DeleteAllCameras _DeleteAllCameras("delcams", "Delete All Cameras", "Deletes all cameras");
-	static DeleteAllObjects _DeleteAllObjects{"delobjs", "Delete All Objects", "Deletes all objects in the game world, including mission critical objects"};
-	static DeleteAllPeds _DeleteAllPeds{"delpeds", "Delete All Peds", "Deletes all peds in the game world, including mission critical peds"};
-	static DeleteAllVehs _DeleteAllVehs{"delvehs", "Delete All Vehicles", "Deletes all vehicles in the game world, including mission critical vehicles"};
+	static DeleteAllCameras _DeleteAllCameras("delcams", "Xóa tất cả camera", "Xóa toàn bộ camera trong game");
+	static DeleteAllObjects _DeleteAllObjects{"delobjs", "Xóa tất cả vật thể", "Xóa toàn bộ vật thể trong game, bao gồm cả những vật quan trọng trong nhiệm vụ"};
+	static DeleteAllPeds _DeleteAllPeds{"delpeds", "Xóa tất cả NPC", "Xóa toàn bộ nhân vật điều khiển bởi máy trong game, kể cả những nhân vật quan trọng trong nhiệm vụ"};
+	static DeleteAllVehs _DeleteAllVehs{"delvehs", "Xóa tất cả xe", "Xóa toàn bộ phương tiện trong game, bao gồm cả xe quan trọng trong nhiệm vụ"};
 }

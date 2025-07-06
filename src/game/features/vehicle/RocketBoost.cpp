@@ -8,7 +8,7 @@ namespace YimMenu::Features
 	    {0, "Infinite"},
 	    {1, "Instant recharge"}};
 
-	static ListCommand _BoostBehavior{"boostbehavior", "Boost behavior", "Desired rocket boost behavior", g_BoostBehavior, 0};
+	static ListCommand _BoostBehavior{"boostbehavior", "Chế độ tăng tốc", "Kiểu hoạt động mong muốn của tên lửa tăng tốc", g_BoostBehavior, 0};
 
 	class ModifyRocketBoost : public LoopedCommand
 	{
@@ -35,5 +35,5 @@ namespace YimMenu::Features
 		}
 	};
 
-	static ModifyRocketBoost _ModifyRocketBoost{"modifyboostbehavior", "Modify boost behavior", "Modify rocket boost behavior for vehicles that support it"};
+	static ModifyRocketBoost _ModifyRocketBoost{"modifyboostbehavior", "Tùy chỉnh chế độ tăng tốc", "Điều chỉnh cách hoạt động của tên lửa tăng tốc cho các phương tiện được hỗ trợ"};
 };

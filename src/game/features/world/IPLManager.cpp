@@ -25,7 +25,7 @@ namespace YimMenu::Features
 	};
 
 	static IPLSelectorHelper g_IPLSelectorHelper{};
-	static ListCommand _IPLSelector{"iplselector", "IPL set to load", "IPL set to load", g_IPLSelectorHelper.availableIplNames, 0};
+	static ListCommand _IPLSelector{"iplselector", "Đã chọn IPL để tải", "IPL đã được đặt để tải vào game", g_IPLSelectorHelper.availableIplNames, 0};
 
 	class IPLLoader : public Command
 	{
@@ -77,7 +77,7 @@ namespace YimMenu::Features
 		}
 	};
 
-	static IPLLoader _IPLLoader{"loadipl", "Load IPL", "Load IPL"};
-	static IPLUnloader _IPLUnloader{"unloadipl", "Unload IPL", "Unload IPL"};
-	static IPLTeleport _IPLTeleport{"ipltp", "Teleport to IPL", "Teleport to the selected IPL"};
+	static IPLLoader _IPLLoader{"loadipl", "Tải IPL", "Nạp nội dung bản đồ (IPL) vào game"};
+	static IPLUnloader _IPLUnloader{"unloadipl", "Gỡ IPL", "Gỡ nội dung bản đồ (IPL) khỏi game"};
+	static IPLTeleport _IPLTeleport{"ipltp", "Dịch chuyển đến IPL", "Dịch chuyển bạn tới khu vực IPL đã chọn"};
 };

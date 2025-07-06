@@ -17,5 +17,5 @@ namespace YimMenu
 		}
 	};
 
-	static RequestPersonalVehicle _RequestPersonalVehicle{"requestpv", "Request Personal Vehicle", "Requests your current Personal Vehicle."};
+	static RequestPersonalVehicle _RequestPersonalVehicle{"requestpv", "Gọi xe cá nhân", "Yêu cầu mang phương tiện cá nhân hiện tại đến cho bạn"};
 }

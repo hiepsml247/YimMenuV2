@@ -42,7 +42,7 @@ namespace YimMenu
 		ImGui::SetNextWindowSize(ImVec2(500, 120));
 		if (ImGui::BeginPopupModal(windowLabel.data(), nullptr, ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoScrollbar))
 		{
-			ImGui::BulletText("Enter a keystroke");
+			ImGui::BulletText("Nhấn một phím bất kỳ");
 
 			ImGui::Separator();
 

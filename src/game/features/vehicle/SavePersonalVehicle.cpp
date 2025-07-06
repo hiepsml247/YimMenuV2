@@ -93,26 +93,26 @@ namespace YimMenu::Features
 		{
 			if (!*Pointers.IsSessionStarted)
 			{
-				Notifications::Show("Save Personal Vehicle", "Please join GTA Online.", NotificationType::Error);
+				Notifications::Show("Lưu xe cá nhân", "Vui lòng tham gia GTA Online.", NotificationType::Error);
 				return;
 			}
 
 			if (!Self::GetVehicle().IsValid())
 			{
-				Notifications::Show("Save Personal Vehicle", "Please get in a vehicle.", NotificationType::Error);
+				Notifications::Show("Lưu xe cá nhân", "Vui lòng lên xe", NotificationType::Error);
 				return;
 			}
 
 			static ScriptFunction isVehicleValidForPV("freemode"_J, ScriptPointer("IsVehicleValidForPV", "5D ? ? ? 2A 06 56 13 00 38 00").Add(1).Rip());
 			if (s_BlacklistedVehicles.contains(Self::GetVehicle().GetModel()) || !isVehicleValidForPV.Call<bool>(Self::GetVehicle().GetModel()))
 			{
-				Notifications::Show("Save Personal Vehicle", "This vehicle cannot be saved as a personal vehicle.", NotificationType::Error);
+				Notifications::Show("Lưu xe cá nhân", "Không thể lưu xe này làm xe cá nhân", NotificationType::Error);
 				return;
 			}
 
 			if (Self::GetVehicle().GetHandle() == FreemodeGeneral::Get()->PersonalVehicleIndex)
 			{
-				Notifications::Show("Save Personal Vehicle", "This vehicle is already a personal vehicle.", NotificationType::Error);
+				Notifications::Show("Lưu xe cá nhân", "Phương tiện này đã là xe cá nhân rồi", NotificationType::Error);
 				return;
 			}
 
@@ -120,5 +120,5 @@ namespace YimMenu::Features
 		}
 	};
 
-	static _SavePersonalVehicle __SavePersonalVehicle{"savepersonalvehicle", "Save Personal Vehicle", "Saves the current vehicle you are in as your personal vehicle."};
+	static _SavePersonalVehicle __SavePersonalVehicle{"savepersonalvehicle", "Lưu xe cá nhân", "Lưu phương tiện bạn đang sử dụng làm xe cá nhân"};
 }

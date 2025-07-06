@@ -31,5 +31,5 @@ namespace YimMenu::Features
 		}
 	};
 
-	static Seatbelt _Seatbelt{"seatbelt", "Seatbelt", "Prevents you from falling out of vehicles."};
+	static Seatbelt _Seatbelt{"seatbelt", "Thắt dây an toàn", "Ngăn bạn bị văng khỏi xe"};
 };

@@ -31,10 +31,10 @@ namespace YimMenu::Submenus
 
 	std::shared_ptr<Category> BuildLocalsMenu()
 	{
-		auto locals = std::make_unique<Category>("Locals");
+		auto locals = std::make_unique<Category>("Giá trị cục bộ");
 
-		auto editor = std::make_unique<Group>("Editor");
-		auto saved = std::make_unique<Group>("Saved");
+		auto editor = std::make_unique<Group>("Trình chỉnh sửa");
+		auto saved = std::make_unique<Group>("Đã lưu");
 
 		static bool ensureVarsLoaded = ([] {
 			SavedVariables::Init();
@@ -52,7 +52,7 @@ namespace YimMenu::Submenus
 
 			curThread = Scripts::FindScriptThread(Joaat(scriptName));
 			if (!curThread)
-				return ImGui::TextDisabled("Invalid");
+				return ImGui::TextDisabled("Không hợp lệ");
 
 			DrawSavedVariable(curLocal);
 			DrawSavedVariableEdit(curLocal, curLocal.Read(curThread));
@@ -60,7 +60,7 @@ namespace YimMenu::Submenus
 
 		saved->AddItem(std::make_unique<ImGuiItem>([] {
 			if (!curThread)
-				return ImGui::TextDisabled("Invalid");
+				return ImGui::TextDisabled("Không hợp lệ");
 
 			auto scriptIdf = curThread->m_ScriptHash;
 			if (scriptIdf != curLocal.script)
@@ -102,13 +102,13 @@ namespace YimMenu::Submenus
 			ImGui::SetNextItemWidth(200.f);
 			ImGui::InputText("##localname", localName, sizeof(localName));
 			ImGui::SameLine();
-			if (ImGui::Button("Save"))
+			if (ImGui::Button("Lưu"))
 			{
 				curLocal.name = localName;
 				SaveLocal(curLocal);
 			}
 			ImGui::SameLine();
-			if (ImGui::Button("Delete"))
+			if (ImGui::Button("Xóa"))
 			{
 				curLocal.name = localName;
 				DeleteLocal(curLocal);

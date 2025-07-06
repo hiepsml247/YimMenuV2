@@ -14,5 +14,5 @@ namespace YimMenu::Features
 		}
 	};
 
-	static RepairVehicle _RepairVehicle{"repairvehicle", "Repair Vehicle", "Fixes any damage to your current vehicle"};
+	static RepairVehicle _RepairVehicle{"repairvehicle", "Sửa xe", "Khắc phục mọi hư hỏng trên phương tiện bạn đang sử dụng"};
 }

@@ -14,5 +14,5 @@ namespace YimMenu::Features
 		}
 	};
 
-	static DisableActionMode _DisableActionMode{"disableactionmode", "Disable Action Mode", "Disables the player's janky movement during combat."};
+	static DisableActionMode _DisableActionMode{"disableactionmode", "Tắt di chuyển kiểu chiến đấu", "Nhân vật sẽ di chuyển mượt hơn khi vào combat"};
 };

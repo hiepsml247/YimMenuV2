@@ -6,7 +6,7 @@
 
 namespace YimMenu::Features
 {
-	static FloatCommand _WeaponDamageScale{"weapondamagescale", "Weapon Damage Scale", "Sets the damage scale for weapons (including melee)", 0.0f, 10.0f, 1.0f};
+	static FloatCommand _WeaponDamageScale{"weapondamagescale", "Tùy chỉnh sát thương vũ khí", "Thiết lập hệ số sát thương cho tất cả vũ khí (bao gồm cả cận chiến)", 0.0f, 10.0f, 1.0f};
 
 	class WeaponDamage : public LoopedCommand
 	{
@@ -37,5 +37,5 @@ namespace YimMenu::Features
 		}
 	};
 
-	static WeaponDamage _WeaponDamage{"weapondamage", "Weapon Damage", "Allows altering your weapons damage output"};
+	static WeaponDamage _WeaponDamage{"weapondamage", "Sát thương vũ khí", "Cho phép thay đổi lượng sát thương vũ khí gây ra"};
 }

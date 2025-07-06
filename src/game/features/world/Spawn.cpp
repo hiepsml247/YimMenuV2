@@ -6,8 +6,8 @@
 
 namespace YimMenu::Features
 {
-	static StringCommand _PedModelName{"pedmodelname", "Ped Model", "The model name of the ped you wish to spawn."};
-	static StringCommand _ObjectModelName{"objectmodelname", "Object Model", "The model name of the object you wish to spawn."};
+	static StringCommand _PedModelName{"pedmodelname", "Mẫu nhân vật", "Tên mẫu của nhân vật (NPC) bạn muốn tạo ra"};
+	static StringCommand _ObjectModelName{"objectmodelname", "Mẫu vật thể", "Tên mô hình của vật thể bạn muốn tạo ra"};
 
 
 	class SpawnPed : public Command
@@ -19,7 +19,7 @@ namespace YimMenu::Features
 			auto model = _PedModelName.GetString();
 			if (!model.length())
 			{
-				Notifications::Show("Spawn Ped", "No model name provided.", NotificationType::Error);
+				Notifications::Show("Gọi NPC", "Bạn chưa cung cấp tên mẫu nhân vật cần tạo", NotificationType::Error);
 				return;
 			}
 
@@ -30,7 +30,7 @@ namespace YimMenu::Features
 			}
 			else
 			{
-				Notifications::Show("Spawn Ped", "Invalid model name provided.", NotificationType::Error);
+				Notifications::Show("Gọi NPC", "Tên mô hình không hợp lệ", NotificationType::Error);
 			}
 		}
 	};
@@ -44,7 +44,7 @@ namespace YimMenu::Features
 			auto model = _ObjectModelName.GetString();
 			if (!model.length())
 			{
-				Notifications::Show("Spawn Object", "No model name provided.", NotificationType::Error);
+				Notifications::Show("Gọi đối tượng", "Chưa nhập tên mô hình vật thể", NotificationType::Error);
 				return;
 			}
 
@@ -55,11 +55,11 @@ namespace YimMenu::Features
 			}
 			else
 			{
-				Notifications::Show("Spawn Object", "Invalid model name provided.", NotificationType::Error);
+				Notifications::Show("Gọi đối tượng", "Tên mô hình không hợp lệ", NotificationType::Error);
 			}
 		}
 	};
 
-	static SpawnPed _SpawnPed{"spawnped", "Spawn Ped", "Spawns a ped at your current location."};
-	static SpawnObject _SpawnObject{"spawnobject", "Spawn Object", "Spawns an object at your current location."};
+	static SpawnPed _SpawnPed{"spawnped", "Gọi NPC", "Tạo một NPC ngay tại chỗ bạn đang đứng"};
+	static SpawnObject _SpawnObject{"spawnobject", "Gọi đối tượng", "Tạo một đối tượng trong game ngay chỗ bạn đang đứng"};
 }

@@ -13,17 +13,17 @@ namespace YimMenu::Submenus
 	    Submenu::Submenu("Network", ICON_FA_ROUTE)
 	{
 		// TODO: this needs a rework
-		auto session = std::make_shared<Category>("Session");
-		auto joinGroup = std::make_shared<Group>("Join");
-		auto bountyGroup = std::make_shared<Group>("Bounty", 1);
-		auto toxicGroup = std::make_shared<Group>("Toxic");
-		auto teleportGroup = std::make_shared<Group>("Teleport");
-		auto trollGroup = std::make_shared<Group>("Troll");
-		auto miscGroup = std::make_shared<Group>("Misc");
-		auto enhancements = std::make_shared<Group>("Enhancements");
+		auto session = std::make_shared<Category>("Phòng");
+		auto joinGroup = std::make_shared<Group>("Vào");
+		auto bountyGroup = std::make_shared<Group>("Tiền thưởng truy nã", 1);
+		auto toxicGroup = std::make_shared<Group>("Gây ức chế ");
+		auto teleportGroup = std::make_shared<Group>("Dịch chuyển tức thời");
+		auto trollGroup = std::make_shared<Group>("Chọc phá");
+		auto miscGroup = std::make_shared<Group>("Linh tinh");
+		auto enhancements = std::make_shared<Group>("Nâng cấp");
 
 		auto joinSession = std::make_shared<Group>("", 1);
-		joinSession->AddItem(std::make_shared<ListCommandItem>("joinsessiontype"_J, "Session Type"));
+		joinSession->AddItem(std::make_shared<ListCommandItem>("joinsessiontype"_J, "Loại phòng"));
 		joinSession->AddItem(std::make_shared<CommandItem>("joinsession"_J, "Join##session"));
 
 		joinGroup->AddItem(joinSession);
@@ -43,7 +43,7 @@ namespace YimMenu::Submenus
 					}
 					else
 					{
-						Notifications::Show("Joiner", "Failed to get RID from username", NotificationType::Error);
+						Notifications::Show("Người tham gia", "Không lấy được ID từ tên người dùng", NotificationType::Error);
 					}
 				});
 
@@ -56,33 +56,33 @@ namespace YimMenu::Submenus
 				});
 		}));
 
-		bountyGroup->AddItem(std::make_shared<IntCommandItem>("bountyamount"_J, "Amount"));
-		bountyGroup->AddItem(std::make_shared<BoolCommandItem>("anonymousbounty"_J, "Anonymous"));
-		bountyGroup->AddItem(std::make_shared<CommandItem>("setbountyall"_J, "Set Bounties"));
+		bountyGroup->AddItem(std::make_shared<IntCommandItem>("bountyamount"_J, "Số tiền"));
+		bountyGroup->AddItem(std::make_shared<BoolCommandItem>("anonymousbounty"_J, "Ẩn danh"));
+		bountyGroup->AddItem(std::make_shared<CommandItem>("setbountyall"_J, "Đặt tiền thưởng truy nã"));
 
 		auto customPlayerTp = std::make_shared<Group>("", 1);
 		customPlayerTp->AddItem(std::make_shared<Vector3CommandItem>("playertpcoord"_J, ""));
-		customPlayerTp->AddItem(std::make_shared<CommandItem>("tpplayertocoordall"_J, "Teleport Everyone"));
+		customPlayerTp->AddItem(std::make_shared<CommandItem>("tpplayertocoordall"_J, "Dịch chuyển tất cả"));
 		auto tpToProperty = std::make_shared<Group>("", 1);
 		tpToProperty->AddItem(std::make_shared<ListCommandItem>("sendtopropertyindex"_J, "##selproperty"));
-		tpToProperty->AddItem(std::make_shared<CommandItem>("sendtopropertyall"_J, "Send All to Property"));
+		tpToProperty->AddItem(std::make_shared<CommandItem>("sendtopropertyall"_J, "Gửi tất cả về tài sản"));
 		auto tpToInterior = std::make_shared<Group>("", 1);
 		tpToInterior->AddItem(std::make_shared<ListCommandItem>("sendtointeriorindex"_J, "##selinterior"));
-		tpToInterior->AddItem(std::make_shared<CommandItem>("sendtointeriorall"_J, "Send All to Interior"));
+		tpToInterior->AddItem(std::make_shared<CommandItem>("sendtointeriorall"_J, "Gửi tất cả vào nội thất"));
 		teleportGroup->AddItem(tpToProperty);
 		teleportGroup->AddItem(tpToInterior);
-		teleportGroup->AddItem(std::make_shared<CommandItem>("bringall"_J, "Bring All"));
+		teleportGroup->AddItem(std::make_shared<CommandItem>("bringall"_J, "Đưa tất cả đến đây"));
 		teleportGroup->AddItem(customPlayerTp);
 
-		trollGroup->AddItem(std::make_shared<CommandItem>("sendsextall"_J, "Send Sexts"));
+		trollGroup->AddItem(std::make_shared<CommandItem>("sendsextall"_J, "Gửi tin nhắn gợi ý (sex) (cẩn thận ngữ cảnh)"));
 		trollGroup->AddItem(std::make_shared<BoolCommandItem>("harassplayers"_J));
 		trollGroup->AddItem(std::make_shared<BoolCommandItem>("spamkillfeed"_J));
-		trollGroup->AddItem(std::make_shared<CommandItem>("deletevehall"_J, "Delete Player Vehicles"));
+		trollGroup->AddItem(std::make_shared<CommandItem>("deletevehall"_J, "Xóa xe người chơi"));
 
-		toxicGroup->AddItem(std::make_shared<CommandItem>("killall"_J, "Kill All"));
-		toxicGroup->AddItem(std::make_shared<CommandItem>("killexploitall"_J, "Permadeath All"));
-		toxicGroup->AddItem(std::make_shared<CommandItem>("explodeall"_J, "Explode All"));
-		toxicGroup->AddItem(std::make_shared<CommandItem>("ceokickall"_J, "CEO Kick All"));
+		toxicGroup->AddItem(std::make_shared<CommandItem>("killall"_J, "Giết tất cả"));
+		toxicGroup->AddItem(std::make_shared<CommandItem>("killexploitall"_J, "Giết vĩnh viễn tất cả"));
+		toxicGroup->AddItem(std::make_shared<CommandItem>("explodeall"_J, "Làm nổ tất cả"));
+		toxicGroup->AddItem(std::make_shared<CommandItem>("ceokickall"_J, "	CEO đá tất cả ra khỏi nhóm"));
 
 		miscGroup->AddItem(std::make_shared<BoolCommandItem>("forcethunder"_J));
 
@@ -103,16 +103,16 @@ namespace YimMenu::Submenus
 		session->AddItem(miscGroup);
 		session->AddItem(enhancements);
 
-		auto spoofing = std::make_shared<Category>("Spoofing");
-		auto matchmakingGroup = std::make_shared<Group>("Matchmaking (Client)");
+		auto spoofing = std::make_shared<Category>("Giả mạo");
+		auto matchmakingGroup = std::make_shared<Group>("Ghép trận (bên client)");
 		matchmakingGroup->AddItem(std::make_shared<BoolCommandItem>("cheaterpool"_J));
 		auto spoofMMRegion = std::make_shared<Group>("", 1);
-		spoofMMRegion->AddItem(std::make_shared<BoolCommandItem>("spoofmmregion"_J, "Spoof Region"));
+		spoofMMRegion->AddItem(std::make_shared<BoolCommandItem>("spoofmmregion"_J, "Giả mạo vùng"));
 		spoofMMRegion->AddItem(std::make_shared<ConditionalItem>("spoofmmregion"_J, std::make_shared<ListCommandItem>("mmregion"_J, "##mmregion")));
 		matchmakingGroup->AddItem(std::make_shared<ConditionalItem>("cheaterpool"_J, spoofMMRegion, true));
 		spoofing->AddItem(matchmakingGroup);
 
-		auto matchmakingSrvGroup = std::make_shared<Group>("Matchmaking (Server)");
+		auto matchmakingSrvGroup = std::make_shared<Group>("Ghép trận (bên server)");
 		auto srvSpoofRegion = std::make_shared<Group>("", 1);
 		srvSpoofRegion->AddItem(std::make_shared<BoolCommandItem>("mmspoofregiontype"_J));
 		srvSpoofRegion->AddItem(std::make_shared<ConditionalItem>("mmspoofregiontype"_J, std::make_shared<ListCommandItem>("mmregiontype"_J, "##mmregiontype")));

@@ -6,7 +6,7 @@
 
 namespace YimMenu::Features
 {
-	static IntCommand _WantedSlider{"wantedslider", "Wanted Slider", "Wanted level to set/freeze", 0, 5, 0};
+	static IntCommand _WantedSlider{"wantedslider", "Điều chỉnh mức truy nã", "Thiết lập hoặc đóng băng cấp độ truy nã", 0, 5, 0};
 
 	class ClearWanted : public Command
 	{
@@ -56,8 +56,8 @@ namespace YimMenu::Features
 		}
 	};
 
-	static ClearWanted _ClearWanted{"clearwanted", "Clear Wanted", "Clears your wanted level"};
-	static SetWanted _SetWanted{"setwanted", "Set Wanted", "Sets your wanted level to the desired level"};
-	static NeverWanted _NeverWanted{"neverwanted", "Never Wanted", "Never gain a wanted level"};
-	static FreezeWanted _FreezeWanted{"freezewanted", "Freeze Wanted", "Freeze your wanted level to the desired level"};
+	static ClearWanted _ClearWanted{"clearwanted", "Xóa truy nã", "Xóa cấp độ truy nã của bạn"};
+	static SetWanted _SetWanted{"setwanted", "Đặt truy nã", "Thiết lập mức truy nã theo ý muốn"};
+	static NeverWanted _NeverWanted{"neverwanted", "Không bao giờ bị truy nã", "Bạn sẽ không bao giờ bị tăng cấp độ truy nã"};
+	static FreezeWanted _FreezeWanted{"freezewanted", "Đóng băng truy nã", "Giữ nguyên mức truy nã hiện tại theo mong muốn"};
 }

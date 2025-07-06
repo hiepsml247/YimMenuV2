@@ -165,12 +165,12 @@ namespace YimMenu::Submenus
 
 	std::shared_ptr<Category> BuildWeaponsMenu()
 	{
-		auto weapons = std::make_shared<Category>("Weapons");
+		auto weapons = std::make_shared<Category>("Vũ khí");
 
-		auto weaponsGlobalsGroup = std::make_shared<Group>("Globals");
-		auto weaponsToolsGroup = std::make_shared<Group>("Tools", 1);
-		auto weaponsAmmuNationGroup = std::make_shared<Group>("Ammu-Nation");
-		auto weaponsAimbotGroup = std::make_shared<Group>("Aimbot", 1);
+		auto weaponsGlobalsGroup = std::make_shared<Group>("Cài đặt chung");
+		auto weaponsToolsGroup = std::make_shared<Group>("Tiện ích", 1);
+		auto weaponsAmmuNationGroup = std::make_shared<Group>("Cửa hàng vũ khí Ammu-Nation");
+		auto weaponsAimbotGroup = std::make_shared<Group>("Chế độ ngắm tự động", 1);
 
 		weaponsGlobalsGroup->AddItem(std::make_shared<BoolCommandItem>("infiniteammo"_J));
 		weaponsGlobalsGroup->AddItem(std::make_shared<BoolCommandItem>("infiniteclip"_J));

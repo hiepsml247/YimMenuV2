@@ -20,10 +20,10 @@ namespace YimMenu::Submenus
 
 	std::shared_ptr<Category> BuildInfoMenu()
 	{
-		auto menu = std::make_shared<Category>("Info");
+		auto menu = std::make_shared<Category>("Thông tin");
 
-		auto teleportGroup = std::make_shared<Group>("Teleport");
-		auto playerOptionsGroup = std::make_shared<Group>("Info");
+		auto teleportGroup = std::make_shared<Group>("Dịch chuyển");
+		auto playerOptionsGroup = std::make_shared<Group>("Thông tin");
 
 		playerOptionsGroup->AddItem(std::make_shared<ImGuiItem>([] {
 			if (Players::GetSelected().IsValid())
@@ -51,7 +51,7 @@ namespace YimMenu::Submenus
 				}
 				else
 				{
-					ImGui::Text("Ped missing or deleted");
+					ImGui::Text("NPC không tồn tại hoặc đã bị loại bỏ");
 				}
 
 				auto rid1 = Players::GetSelected().GetRID();
@@ -123,7 +123,7 @@ namespace YimMenu::Submenus
 		
 		auto customPlayerTp = std::make_shared<Group>("", 1);
 		customPlayerTp->AddItem(std::make_shared<Vector3CommandItem>("playertpcoord"_J, ""));
-		customPlayerTp->AddItem(std::make_shared<PlayerCommandItem>("tpplayertocoord"_J, "Teleport"));
+		customPlayerTp->AddItem(std::make_shared<PlayerCommandItem>("tpplayertocoord"_J, "Dịch chuyển"));
 		auto tpToProperty = std::make_shared<Group>("", 1);
 		tpToProperty->AddItem(std::make_shared<ListCommandItem>("sendtopropertyindex"_J, "##selproperty"));
 		tpToProperty->AddItem(std::make_shared<PlayerCommandItem>("sendtoproperty"_J));
@@ -132,7 +132,7 @@ namespace YimMenu::Submenus
 		tpToInterior->AddItem(std::make_shared<PlayerCommandItem>("sendtointerior"_J));
 		teleportGroup->AddItem(tpToProperty);
 		teleportGroup->AddItem(tpToInterior);
-		teleportGroup->AddItem(std::make_shared<PlayerCommandItem>("tptoplayer"_J, "Teleport To"));
+		teleportGroup->AddItem(std::make_shared<PlayerCommandItem>("tptoplayer"_J, "Dịch chuyển đến…"));
 		teleportGroup->AddItem(std::make_shared<PlayerCommandItem>("bring"_J));
 		teleportGroup->AddItem(customPlayerTp);
 

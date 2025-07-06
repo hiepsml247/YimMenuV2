@@ -14,5 +14,5 @@ namespace YimMenu::Features
 		}
 	};
 
-	static EnterLastVehicle _EnterLastVehicle{"enterlastvehicle", "Enter last vehicle", "Enters the last vehicle you were in"};
+	static EnterLastVehicle _EnterLastVehicle{"enterlastvehicle", "Vào lại xe gần nhất", "Bạn sẽ tự động vào chiếc xe gần nhất mà mình từng sử dụng"};
 };

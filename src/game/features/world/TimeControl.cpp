@@ -5,9 +5,9 @@
 
 namespace YimMenu::Features
 {
-	static IntCommand _NetworkTimeHour{"networktimehour", "Hour", "Set hour (0-23)", 0, 23, 12};
-	static IntCommand _NetworkTimeMinute{"networktimeminute", "Minute", "Set minute (0-59)", 0, 59, 0};
-	static IntCommand _NetworkTimeSecond{"networktimesecond", "Second", "Set second (0-59)", 0, 59, 0};
+	static IntCommand _NetworkTimeHour{"networktimehour", "Giờ", "Đặt giờ (0–23)", 0, 23, 12};
+	static IntCommand _NetworkTimeMinute{"networktimeminute", "Phút", "Đặt phút (0-59)", 0, 59, 0};
+	static IntCommand _NetworkTimeSecond{"networktimesecond", "Giây", "Đặt giây (0-59)", 0, 59, 0};
 
 
 	class SetNetworkTime : public Command
@@ -39,6 +39,6 @@ namespace YimMenu::Features
 		}
 	};
 
-	static SetNetworkTime _SetTime{"setnetworktime", "Set Time", "Sets the current online time"};
-	static FreezeNetworkTime _FreezeTime{"freezenetworktime", "Freeze Time", "Freezes the online clock at the selected time"};
+	static SetNetworkTime _SetTime{"setnetworktime", "Chỉnh giờ trong game", "Thay đổi thời gian hiện tại khi chơi online"};
+	static FreezeNetworkTime _FreezeTime{"freezenetworktime", "Đóng băng thời gian", "Giữ nguyên đồng hồ trong game ở thời điểm đã chọn khi chơi online"};
 }

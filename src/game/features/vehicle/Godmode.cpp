@@ -26,5 +26,5 @@ namespace YimMenu::Features
 		}
 	};
 
-	static VehicleGodmode _VehicleGodmode{"vehiclegodmode", "Vehicle God Mode", "Blocks all incoming damage to your current vehicle"};
+	static VehicleGodmode _VehicleGodmode{"vehiclegodmode", "Chế độ bất tử cho xe", "Chặn mọi sát thương vào phương tiện bạn đang sử dụng"};
 }

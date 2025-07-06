@@ -13,5 +13,5 @@ namespace YimMenu::Features
 		}
 	};
 
-	static SkipCutscene _SkipCutscene{"skipcutscene", "Skip Cutscene", "Skips any currently playing cutscene"};
+	static SkipCutscene _SkipCutscene{"skipcutscene", "Bỏ qua cảnh cắt", "Bỏ qua đoạn phim (cutscene) đang chiếu"};
 }

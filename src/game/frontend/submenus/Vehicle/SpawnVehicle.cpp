@@ -10,17 +10,17 @@
 
 namespace YimMenu::Submenus
 {
-	static BoolCommand spawnInsideVehicle{"spawninsideveh", "Spawn Inside", "Spawn inside the vehicle."};
-	static BoolCommand spawnVehicleMaxed{"spawnvehmaxed", "Spawn Maxed", "Spawn the vehicle maxed."};
-	static BoolCommand spawnInsidePersonalVehicle{"spawninsidepv", "Spawn Inside", "Spawn inside the personal vehicle."};
-	static BoolCommand spawnClonePersonalVehicle{"spawnclonepv", "Spawn Clone", "Spawn a clone of the persone vehicle."};
+	static BoolCommand spawnInsideVehicle{"spawninsideveh", "Xuất hiện bên trong", "Xuất hiện bên trong xe."};
+	static BoolCommand spawnVehicleMaxed{"spawnvehmaxed", "Xuất xe đầy đủ trang bị", "Xuất xe với trang bị tối đa."};
+	static BoolCommand spawnInsidePersonalVehicle{"spawninsidepv", "Xuất hiện bên trong", "	Xuất hiện bên trong xe cá nhân."};
+	static BoolCommand spawnClonePersonalVehicle{"spawnclonepv", "Xuất bản sao của xe cá nhân", "Xuất bản sao xe cá nhân."};
 
 	std::shared_ptr<TabItem> RenderSpawnNewVehicle()
 	{
-		auto tab = std::make_shared<TabItem>("New Vehicle");
+		auto tab = std::make_shared<TabItem>("Xe mới");
 
-		auto spawn = std::make_shared<Group>("Spawn");
-		auto settings = std::make_shared<Group>("Settings");
+		auto spawn = std::make_shared<Group>("Xuất xe");
+		auto settings = std::make_shared<Group>("Cài đặt");
 
 		static std::vector<std::string> vehicleNames{};
 		static std::vector<int> vehicleClasses{};
@@ -62,12 +62,12 @@ namespace YimMenu::Submenus
 
 			static char search[64];
 			ImGui::SetNextItemWidth(300.f);
-			ImGui::InputTextWithHint("Name", "Search", search, sizeof(search));
+			ImGui::InputTextWithHint("Tên", "Tìm kiếm", search, sizeof(search));
 
 			ImGui::SetNextItemWidth(300.f);
-			if (ImGui::BeginCombo("Class", selectedClass == -1 ? "All" : g_VehicleClassNames[selectedClass]))
+			if (ImGui::BeginCombo("Loại", selectedClass == -1 ? "All" : g_VehicleClassNames[selectedClass]))
 			{
-				if (ImGui::Selectable("All", selectedClass == -1))
+				if (ImGui::Selectable("Tất cả", selectedClass == -1))
 				{
 					selectedClass = -1;
 				}
@@ -89,7 +89,7 @@ namespace YimMenu::Submenus
 			{
 				if (vehicleNames.empty())
 				{
-					ImGui::Text("Natives not cached yet.");
+					ImGui::Text("Chưa lưu bộ lệnh gốc.");
 				}
 				else
 				{
@@ -138,27 +138,27 @@ namespace YimMenu::Submenus
 
 	std::shared_ptr<TabItem> RenderSpawnPersonalVehicle()
 	{
-		auto tab = std::make_shared<TabItem>("Personal Vehicle");
+		auto tab = std::make_shared<TabItem>("Xe cá nhân");
 
-		auto spawn = std::make_shared<Group>("Spawn");
-		auto settings = std::make_shared<Group>("Settings");
+		auto spawn = std::make_shared<Group>("Xuất xe");
+		auto settings = std::make_shared<Group>("Cài đặt");
 
 		static std::string selectedGarageStr{""};
 
 		spawn->AddItem(std::make_unique<ImGuiItem>([] {
 			if (!*Pointers.IsSessionStarted)
-				return ImGui::TextDisabled("Join GTA Online.");
+				return ImGui::TextDisabled("Tham gia GTA Online.");
 
 			PersonalVehicles::Update();
 
 			static char search[64];
 			ImGui::SetNextItemWidth(300.f);
-			ImGui::InputTextWithHint("Name", "Search", search, sizeof(search));
+			ImGui::InputTextWithHint("Tên", "	Tìm kiếm", search, sizeof(search));
 
 			ImGui::SetNextItemWidth(300.f);
-			if (ImGui::BeginCombo("Garage", selectedGarageStr.empty() ? "All" : selectedGarageStr.c_str()))
+			if (ImGui::BeginCombo("Ga ra", selectedGarageStr.empty() ? "All" : selectedGarageStr.c_str()))
 			{
-				if (ImGui::Selectable("All", selectedGarageStr.empty()))
+				if (ImGui::Selectable("Tất cả", selectedGarageStr.empty()))
 				{
 					selectedGarageStr.clear();
 				}
@@ -179,7 +179,7 @@ namespace YimMenu::Submenus
 			{
 				if (PersonalVehicles::GetPersonalVehicles().empty())
 				{
-					ImGui::Text("Stats not loaded yet.");
+					ImGui::Text("Chưa tải được thông số.");
 				}
 				else
 				{
@@ -213,7 +213,7 @@ namespace YimMenu::Submenus
 									else
 									{
 										if (!personalVeh->Request(spawnInsidePersonalVehicle.GetState()))
-											Notifications::Show("Spawn Personal Vehicle", "Failed to spawn Personal Vehicle.", NotificationType::Error);
+											Notifications::Show("Xuất xe cá nhân", "Không thể xuất xe cá nhân.", NotificationType::Error);
 									}
 								});
 							}
@@ -237,10 +237,10 @@ namespace YimMenu::Submenus
 
 	std::shared_ptr<Category> BuildSpawnVehicleMenu()
 	{
-		auto menu = std::make_shared<Category>("Spawn");
+		auto menu = std::make_shared<Category>("Xuất xe");
 
 		menu->AddItem(std::make_shared<ImGuiItem>([] {
-			ImGui::BeginTabBar("Spawn");
+			ImGui::BeginTabBar("Xuất xe");
 		}));
 		menu->AddItem(RenderSpawnNewVehicle());
 		menu->AddItem(RenderSpawnPersonalVehicle());

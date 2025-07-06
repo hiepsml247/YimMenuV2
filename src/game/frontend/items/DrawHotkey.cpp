@@ -22,9 +22,9 @@ namespace YimMenu
 		if (link->m_Chain.empty())
 		{
 			if (active)
-				ImGui::Text("Press any button...");
+				ImGui::Text("Nhấn bất kỳ nút nào...");
 			else
-				ImGui::Text("No hotkey assigned");
+				ImGui::Text("Không có phím tắt nào được thiết lập");
 		}
 		else
 		{

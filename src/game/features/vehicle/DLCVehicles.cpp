@@ -51,5 +51,5 @@ namespace YimMenu::Features
 		}
 	};
 
-	static DLCVehicles _DLCVehicles{"dlcvehicles", "Enable All DLC Vehicles", "Enables all the DLC vehicles on websites."};
+	static DLCVehicles _DLCVehicles{"dlcvehicles", "Bật tất cả xe DLC", "Kích hoạt toàn bộ xe từ các bản mở rộng trên trang web trong game"};
 }

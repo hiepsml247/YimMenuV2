@@ -17,5 +17,5 @@ namespace YimMenu::Features
 		}
 	};
 
-	static GiveMaxAmmo _GiveMaxAmmo{"givemaxammo", "Give Max Ammo", "Refills your ammo to max."};
+	static GiveMaxAmmo _GiveMaxAmmo{"givemaxammo", "Nạp đầy đạn", "Bổ sung tối đa số lượng đạn của bạn"};
 }

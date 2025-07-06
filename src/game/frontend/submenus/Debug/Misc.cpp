@@ -13,10 +13,10 @@ namespace YimMenu::Submenus
 {
 	std::shared_ptr<Category> BuildMiscMenu()
 	{
-		auto misc = std::make_unique<Category>("Misc");
+		auto misc = std::make_unique<Category>("Linh tinh");
 
 		misc->AddItem(std::make_unique<ImGuiItem>([] {
-			if (ImGui::Button("Network Bail"))
+			if (ImGui::Button("Thoát khỏi chế độ online"))
 			{
 				FiberPool::Push([] {
 					NETWORK::NETWORK_BAIL(0, 24, 0);
@@ -24,12 +24,12 @@ namespace YimMenu::Submenus
 			}
 
 			static int interiorIndex = 0;
-			ImGui::InputInt("interiorIndex", &interiorIndex);
+			ImGui::InputInt("ID nội thất", &interiorIndex);
 
 			static bool enterOwnerInterior = false;
-			ImGui::Checkbox("enterOwnerInterior", &enterOwnerInterior);
+			ImGui::Checkbox("Vào khu vực bên trong của chủ sở hữu", &enterOwnerInterior);
 
-			if (ImGui::Button("DoTeleport"))
+			if (ImGui::Button("Tiến hành dịch chuyển"))
 			{
 				FiberPool::Push([] {
 					SCRIPT_EVENT_SEND_TO_INTERIOR message;
@@ -48,8 +48,8 @@ namespace YimMenu::Submenus
 			}
 
 			static int team;
-			ImGui::InputInt("Team", &team);
-			if (ImGui::Button("fm_mission_controller DoTeamSwap"))
+			ImGui::InputInt("Nhóm", &team);
+			if (ImGui::Button("fm_mission_controller Chuyển đội"))
 			{
 				FiberPool::Push([] {
 					static ScriptFunction DoTeamSwap("fm_mission_controller"_J, ScriptPointer("DoTeamSwap", "2D 02 04 00 00 38 00 50"));

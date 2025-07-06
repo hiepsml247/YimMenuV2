@@ -11,12 +11,12 @@ namespace YimMenu::Submenus
 		#define ICON_FA_USER "\xef\x80\x87"
 	    Submenu::Submenu("Self", ICON_FA_USER)
 	{
-		auto main = std::make_shared<Category>("Main");
-		auto globalsGroup = std::make_shared<Group>("Globals");
-		auto movementGroup = std::make_shared<Group>("Movement");
-		auto toolsGroup = std::make_shared<Group>("Tools", 2);
-		auto specialAbilityGroup = std::make_shared<Group>("Special Ability");
-		auto wantedGroup = std::make_shared<Group>("Wanted");
+		auto main = std::make_shared<Category>("Trang chính");
+		auto globalsGroup = std::make_shared<Group>("Thiết lập chung");
+		auto movementGroup = std::make_shared<Group>("Di chuyển");
+		auto toolsGroup = std::make_shared<Group>("Công cụ", 2);
+		auto specialAbilityGroup = std::make_shared<Group>("Kỹ năng đặc biệt");
+		auto wantedGroup = std::make_shared<Group>("Bị truy nã");
 
 		globalsGroup->AddItem(std::make_shared<BoolCommandItem>("godmode"_J));
 		globalsGroup->AddItem(std::make_shared<BoolCommandItem>("invis"_J));

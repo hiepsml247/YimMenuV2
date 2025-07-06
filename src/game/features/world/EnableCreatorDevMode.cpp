@@ -38,5 +38,5 @@ namespace YimMenu
 		}
 	};
 
-	static EnableCreatorDevMode _EnableCreatorDevMode{"enablecreatordevmode", "Enable Creator Dev Mode", "Enables the developer mode in Creator."};
+	static EnableCreatorDevMode _EnableCreatorDevMode{"enablecreatordevmode", "Bật chế độ nhà phát triển trong Trình tạo", "Kích hoạt chế độ dành cho nhà phát triển khi sử dụng Trình tạo bản đồ"};
 }

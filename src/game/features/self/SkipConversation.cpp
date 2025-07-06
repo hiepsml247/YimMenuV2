@@ -14,5 +14,5 @@ namespace YimMenu::Features
 		}
 	};
 
-	static SkipConversation _SkipConversation{"skipconversation", "Skip Conversation", "Skips current conversation in the phone."};
+	static SkipConversation _SkipConversation{"skipconversation", "Bỏ qua hội thoại", "Bỏ qua cuộc trò chuyện hiện tại trên điện thoại"};
 }

@@ -46,7 +46,7 @@ namespace YimMenu::Features
 	    "SNOW_HALLOWEEN",
 	};
 
-	static ListCommand _Weather{"weather", "Weather", "Weather to set or force. Note that this is local and cannot be seen by other players", g_WeatherTypes, 0};
+	static ListCommand _Weather{"weather", "Chỉnh thời tiết", "Thay đổi thời tiết chỉ trên màn hình của bạn, không ảnh hưởng đến người khác.", g_WeatherTypes, 0};
 
 	class SetWeather : public Command
 	{
@@ -57,7 +57,7 @@ namespace YimMenu::Features
 			MISC::SET_WEATHER_TYPE_PERSIST(g_WeatherCodes[_Weather.GetState()]);
 		}
 	};
-	static SetWeather _SetWeather{"setweather", "Set Weather", "Sets the specifed weather. Note that this effect is local and cannot be seen by other players"};
+	static SetWeather _SetWeather{"setweather", "Đặt thời tiết", "Thiết lập kiểu thời tiết mong muốn. Lưu ý: hiệu ứng này chỉ hiển thị cho bạn, người chơi khác sẽ không thấy."};
 
 	class ForceWeather : public LoopedCommand
 	{
@@ -131,5 +131,5 @@ namespace YimMenu::Features
 		}
 	};
 
-	static ForceWeather _ForceWeather{"forceweather", "Force Weather", "Forces the specified weather. Note that this effect is local and cannot be seen by other players"};
+	static ForceWeather _ForceWeather{"forceweather", "Cưỡng chế thời tiết", "Buộc áp dụng kiểu thời tiết đã chọn. Lưu ý: hiệu ứng này chỉ hiển thị cho bạn, người chơi khác sẽ không thấy."};
 }

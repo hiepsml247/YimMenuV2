@@ -13,8 +13,8 @@ namespace YimMenu::Submenus
 	// TODO: refactor this
 	static void Hotkeys()
 	{
-		ImGui::BulletText("Hold the button with the command name and enter a keystroke to change its hotkey");
-		ImGui::BulletText("If a command has an existing hotkey, clicking the button will remove it");
+		ImGui::BulletText("Giữ nút chứa tên lệnh và nhấn phím tắt mới để thay đổi hotkey.");
+		ImGui::BulletText("Nếu lệnh đã có hotkey, nhấn nút sẽ xóa hotkey đó.");
 
 		ImGui::Spacing();
 		ImGui::Separator();
@@ -41,18 +41,18 @@ namespace YimMenu::Submenus
 
 	Settings::Settings() :
 	#define ICON_FA_GEARS "\xef\x80\x93"
-	    Submenu::Submenu("Settings", ICON_FA_GEARS)
+	    Submenu::Submenu("Cài đặt", ICON_FA_GEARS)
 	{
-		auto hotkeys = std::make_shared<Category>("Hotkeys");
-		auto gui = std::make_shared<Category>("GUI");
-		auto game = std::make_shared<Category>("Game");
+		auto hotkeys = std::make_shared<Category>("Phím tắt");
+		auto gui = std::make_shared<Category>("Giao diện đồ họa");
+		auto game = std::make_shared<Category>("Trò chơi");
 
-		auto uiStyle = std::make_shared<Group>("UI");
-		auto playerEsp = std::make_shared<Group>("Player ESP", 10);
-		auto pedEsp = std::make_shared<Group>("Ped ESP", 10);
-		auto objectEsp = std::make_shared<Group>("Object ESP");
-		auto overlay = std::make_shared<Group>("Overlay");
-		auto chat = std::make_shared<Group>("Chat");
+		auto uiStyle = std::make_shared<Group>("Giao diện người dùng");
+		auto playerEsp = std::make_shared<Group>("Hiển thị người chơi (ESP)", 10);
+		auto pedEsp = std::make_shared<Group>("Hiển thị nhân vật (Ped ESP)", 10);
+		auto objectEsp = std::make_shared<Group>("Hiển thị vật thể (Object ESP)");
+		auto overlay = std::make_shared<Group>("Lớp phủ");
+		auto chat = std::make_shared<Group>("Trò chuyện");
 
 		hotkeys->AddItem(std::make_shared<ImGuiItem>(Hotkeys));
 
@@ -62,35 +62,35 @@ namespace YimMenu::Submenus
 		playerEsp->AddItem(std::make_shared<BoolCommandItem>("espdrawplayers"_J));
 		playerEsp->AddItem(std::make_shared<ConditionalItem>("espdrawplayers"_J, std::make_shared<BoolCommandItem>("espdrawdeadplayers"_J)));
 
-		playerEsp->AddItem(std::make_shared<ConditionalItem>("espdrawplayers"_J, std::make_shared<BoolCommandItem>("espnameplayers"_J, "Player Name")));
+		playerEsp->AddItem(std::make_shared<ConditionalItem>("espdrawplayers"_J, std::make_shared<BoolCommandItem>("espnameplayers"_J, "Tên người chơi")));
 		playerEsp->AddItem(std::make_shared<ConditionalItem>("espdrawplayers"_J, std::make_shared<ColorCommandItem>("namecolorplayers"_J)));
 
-		playerEsp->AddItem(std::make_shared<ConditionalItem>("espdrawplayers"_J, std::make_shared<BoolCommandItem>("espdistanceplayers"_J, "Player Distance")));
+		playerEsp->AddItem(std::make_shared<ConditionalItem>("espdrawplayers"_J, std::make_shared<BoolCommandItem>("espdistanceplayers"_J, "Khoảng cách người chơi")));
 
-		playerEsp->AddItem(std::make_shared<ConditionalItem>("espdrawplayers"_J, std::make_shared<BoolCommandItem>("espskeletonplayers"_J, "Player Skeleton")));
+		playerEsp->AddItem(std::make_shared<ConditionalItem>("espdrawplayers"_J, std::make_shared<BoolCommandItem>("espskeletonplayers"_J, "Khung xương người chơi")));
 		playerEsp->AddItem(std::make_shared<ConditionalItem>("espdrawplayers"_J, std::make_shared<ColorCommandItem>("skeletoncolorplayers"_J)));
 
 		// Peds
 		pedEsp->AddItem(std::make_shared<BoolCommandItem>("espdrawpeds"_J));
 		pedEsp->AddItem(std::make_shared<ConditionalItem>("espdrawpeds"_J, std::make_shared<BoolCommandItem>("espdrawdeadpeds"_J)));
 
-		pedEsp->AddItem(std::make_shared<ConditionalItem>("espdrawpeds"_J, std::make_shared<BoolCommandItem>("espmodelspeds"_J, "Ped Hashes")));
+		pedEsp->AddItem(std::make_shared<ConditionalItem>("espdrawpeds"_J, std::make_shared<BoolCommandItem>("espmodelspeds"_J, "Mã định danh nhân vật (Ped Hashes)")));
 		pedEsp->AddItem(std::make_shared<ConditionalItem>("espdrawpeds"_J, std::make_shared<ColorCommandItem>("hashcolorpeds"_J)));
 
-		pedEsp->AddItem(std::make_shared<ConditionalItem>("espdrawpeds"_J, std::make_shared<BoolCommandItem>("espnetinfopeds"_J, "Ped Net Info")));
-		pedEsp->AddItem(std::make_shared<ConditionalItem>("espdrawpeds"_J, std::make_shared<BoolCommandItem>("espscriptinfopeds"_J, "Ped Script Info")));
+		pedEsp->AddItem(std::make_shared<ConditionalItem>("espdrawpeds"_J, std::make_shared<BoolCommandItem>("espnetinfopeds"_J, "Thông tin mạng nhân vật")));
+		pedEsp->AddItem(std::make_shared<ConditionalItem>("espdrawpeds"_J, std::make_shared<BoolCommandItem>("espscriptinfopeds"_J, "Thông tin script nhân vật")));
 
-		pedEsp->AddItem(std::make_shared<ConditionalItem>("espdrawpeds"_J, std::make_shared<BoolCommandItem>("espdistancepeds"_J, "Ped Distance")));
+		pedEsp->AddItem(std::make_shared<ConditionalItem>("espdrawpeds"_J, std::make_shared<BoolCommandItem>("espdistancepeds"_J, "Khoảng cách nhân vật")));
 
-		pedEsp->AddItem(std::make_shared<ConditionalItem>("espdrawpeds"_J, std::make_shared<BoolCommandItem>("espskeletonpeds"_J, "Ped Skeleton")));
+		pedEsp->AddItem(std::make_shared<ConditionalItem>("espdrawpeds"_J, std::make_shared<BoolCommandItem>("espskeletonpeds"_J, "Khung xương nhân vật")));
 		pedEsp->AddItem(std::make_shared<ConditionalItem>("espdrawpeds"_J, std::make_shared<ColorCommandItem>("skeletoncolorpeds"_J)));
 
 		objectEsp->AddItem(std::make_shared<BoolCommandItem>("espdrawobjects"_J));
 		objectEsp->AddItem(std::make_shared<ConditionalItem>("espdrawobjects"_J, std::make_shared<ColorCommandItem>("hashcolorobjects"_J)));
-		objectEsp->AddItem(std::make_shared<ConditionalItem>("espdrawobjects"_J, std::make_shared<BoolCommandItem>("espnetinfoobjects"_J, "Object Net Info")));
-		objectEsp->AddItem(std::make_shared<ConditionalItem>("espdrawobjects"_J, std::make_shared<BoolCommandItem>("espscriptinfoobjects"_J, "Object Script Info")));
+		objectEsp->AddItem(std::make_shared<ConditionalItem>("espdrawobjects"_J, std::make_shared<BoolCommandItem>("espnetinfoobjects"_J, "Thông tin mạng vật thể")));
+		objectEsp->AddItem(std::make_shared<ConditionalItem>("espdrawobjects"_J, std::make_shared<BoolCommandItem>("espscriptinfoobjects"_J, "Thông tin script vật thể")));
 
-		objectEsp->AddItem(std::make_shared<ConditionalItem>("espdrawobjects"_J, std::make_shared<BoolCommandItem>("espdistanceobjects"_J, "Object Distance")));
+		objectEsp->AddItem(std::make_shared<ConditionalItem>("espdrawobjects"_J, std::make_shared<BoolCommandItem>("espdistanceobjects"_J, "Khoảng cách vật thể")));
 
 
 		overlay->AddItem(std::make_shared<BoolCommandItem>("overlay"_J));

@@ -112,7 +112,7 @@ namespace YimMenu::Submenus
 						}
 						ImGui::PopID();
 						if (ImGui::IsItemActive() && ImGui::IsItemHovered())
-							ImGui::SetTooltip("Press ENTER to write.");
+							ImGui::SetTooltip("Nhấn ENTER để viết");
 
 						if (i < bytesPerRow - 1)
 							ImGui::SameLine();
@@ -129,7 +129,7 @@ namespace YimMenu::Submenus
 	{
 		auto menu = std::make_unique<Category>("Scripts");
 
-		auto threads = std::make_unique<TabItem>("Threads");
+		auto threads = std::make_unique<TabItem>("Luồng xử lý");
 		auto script = std::make_unique<TabItem>("Start Script");
 
 		threads->AddItem(std::make_unique<ImGuiItem>([] {
@@ -143,7 +143,7 @@ namespace YimMenu::Submenus
 				return ImGui::TextDisabled("None");
 			}
 
-			if (ImGui::BeginCombo("Thread", curThread ? curThread->m_ScriptName : "(Select)"))
+			if (ImGui::BeginCombo("Luồng xử lý", curThread ? curThread->m_ScriptName : "(Chọn)"))
 			{
 				for (auto thread : *Pointers.ScriptThreads)
 				{

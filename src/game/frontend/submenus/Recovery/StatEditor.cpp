@@ -359,7 +359,7 @@ namespace YimMenu::Submenus
 					WriteStat(current_info.m_NameHash, value, current_info.m_Data);
 				});
 			if (!can_edit && ImGui::IsItemHovered(ImGuiHoveredFlags_AllowWhenDisabled))
-				ImGui::SetTooltip("This stat should not be edited by the client. Right-click to force the write anyway");
+				ImGui::SetTooltip("Chỉ số này không nên chỉnh sửa bởi người dùng. Nhấn chuột phải để ép ghi đè nếu vẫn muốn.");
 			ImGui::EndDisabled();
 		}));
 

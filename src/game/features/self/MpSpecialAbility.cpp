@@ -17,7 +17,7 @@ namespace YimMenu::Features
 	    {3, "Snapshot (Aim at head)"},
 	    {4, "Insult"},
 	};
-	static ListCommand _SelectedSpecialAbility{"selspecialability", "Special Ability in MP", "The special ability to enable for the MP character", g_SpecialAbilityTypes, 0};
+	static ListCommand _SelectedSpecialAbility{"selspecialability", "Kích hoạt năng lực đặc biệt cho nhân vật online", "Chọn kỹ năng đặc biệt dùng trong chế độ nhiều người chơi", g_SpecialAbilityTypes, 0};
 
 	class MpSpecialAbility : public LoopedCommand
 	{
@@ -62,7 +62,7 @@ namespace YimMenu::Features
 		}
 	};
 
-	static MpSpecialAbility _MpSpecialAbility{"mpspecialability", "Enable Special Abilities in MP", "Enables special abilities in multiplayer. This repurposes cut content and may be unstable"};
+	static MpSpecialAbility _MpSpecialAbility{"mpspecialability", "Kích hoạt năng lực đặc biệt khi chơi online", "Cho phép dùng năng lực đặc biệt trong chế độ nhiều người. Một số nội dung có thể chưa hoàn thiện, dễ gây lỗi."};
 
 	void IsControlPressedHook(rage::scrNativeCallContext* ctx)
 	{

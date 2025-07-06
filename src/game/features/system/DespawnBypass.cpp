@@ -28,5 +28,5 @@ namespace YimMenu::Features
 		}
 	};
 
-	static DespawnBypass _DespawnBypass{"despawnbypass", "Allow MP Vehicles in SP", "Allows MP vehicles to be used in SP", true};
+	static DespawnBypass _DespawnBypass{"despawnbypass", "Cho phép xe online trong chế độ đơn", "Cho phép sử dụng xe từ chế độ nhiều người chơi trong chế độ chơi đơn", true};
 }

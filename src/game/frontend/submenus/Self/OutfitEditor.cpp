@@ -87,7 +87,7 @@ namespace YimMenu
 
 	std::shared_ptr<Category> CreateOutfitsMenu()
 	{
-		auto category = std::make_shared<Category>("Outfit Editor");
+		auto category = std::make_shared<Category>("Công cụ chỉnh sửa trang phục");
 
 		category->AddItem(std::make_shared<ImGuiItem>([] {
 			if (!NativeInvoker::AreHandlersCached())
@@ -199,7 +199,7 @@ namespace YimMenu
 
 			ImGui::Columns(1);
 
-			if (ImGui::Button("Randomize Outfit"))
+			if (ImGui::Button("Tạo trang phục ngẫu nhiên"))
 			{
 				std::random_device rd;
 				std::mt19937 gen(rd());

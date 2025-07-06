@@ -12,8 +12,8 @@ namespace YimMenu::Submenus
 		kicks->AddItem(std::make_shared<PlayerCommandItem>("endkick"_J));
 		kicks->AddItem(std::make_shared<PlayerCommandItem>("nfkick"_J));
 
-		auto other = std::make_shared<Group>("Other");
-		other->AddItem(std::make_shared<PlayerCommandItem>("blackscreen"_J));
+		auto other = std::make_shared<Group>("Mục khác");
+		other->AddItem(std::make_shared<PlayerCommandItem>("Đang bị treo đen màn hình"_J));
 
 		menu->AddItem(kicks);
 		menu->AddItem(other);

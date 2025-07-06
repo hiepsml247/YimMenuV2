@@ -5,8 +5,8 @@
 
 namespace YimMenu::Features
 {
-	static FloatCommand _SuperRunMoveRateOverride{"moverateoverride", "Move Rate Override", "Multipler for base run/sprint speed", 0.0f, 10.0f, 2.0f};
-	static FloatCommand _SuperRunRunSprintMultiplier{"runsprintswimmultiplier", "Run/Sprint/Swim Multiplier", "Multipler with which the run/sprint/swim speed is increased with until maximum speed is reached", 1.0f, 1.49f, 1.0f};
+	static FloatCommand _SuperRunMoveRateOverride{"moverateoverride", "Điều chỉnh tốc độ di chuyển", "Nhân hệ số tốc độ chạy bộ/chạy nhanh", 0.0f, 10.0f, 2.0f};
+	static FloatCommand _SuperRunRunSprintMultiplier{"runsprintswimmultiplier", "Hệ số chạy/nhảy bơi", "Tăng tốc độ chạy, chạy nhanh và bơi đến mức tối đa", 1.0f, 1.49f, 1.0f};
 
 	class SuperRun : public LoopedCommand
 	{
@@ -39,5 +39,5 @@ namespace YimMenu::Features
 		}
 	};
 
-	static SuperRun _Superrun{"superrun", "Super Run", "Run faster than normal"};
+	static SuperRun _Superrun{"superrun", "Chạy siêu tốc", "Chạy nhanh hơn bình thường"};
 }

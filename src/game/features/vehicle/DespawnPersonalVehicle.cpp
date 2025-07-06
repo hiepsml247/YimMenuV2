@@ -17,5 +17,5 @@ namespace YimMenu
 		}
 	};
 
-	static DespawnPersonalVehicle _DespawnPersonalVehicle{"despawnpv", "Despawn Personal Vehicle", "Returns your current Personal Vehicle to storage."};
+	static DespawnPersonalVehicle _DespawnPersonalVehicle{"despawnpv", "Cất xe cá nhân", "Đưa xe cá nhân hiện tại của bạn về gara"};
 }

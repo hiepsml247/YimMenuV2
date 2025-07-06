@@ -31,10 +31,10 @@ namespace YimMenu::Submenus
 
 	std::shared_ptr<Category> BuildGlobalsMenu()
 	{
-		auto globals = std::make_unique<Category>("Globals");
+		auto globals = std::make_unique<Category>("Giá trị toàn cục");
 
-		auto editor = std::make_unique<Group>("Editor");
-		auto saved = std::make_unique<Group>("Saved");
+		auto editor = std::make_unique<Group>("Trình chỉnh sửa");
+		auto saved = std::make_unique<Group>("Đã lưu");
 
 		static bool ensureVarsLoaded = ([] {
 			SavedVariables::Init();
@@ -77,15 +77,15 @@ namespace YimMenu::Submenus
 			ImGui::BeginGroup();
 
 			ImGui::SetNextItemWidth(200.f);
-			ImGui::InputTextWithHint("##global_name", "Name", globalName, sizeof(globalName));
+			ImGui::InputTextWithHint("##global_name", "Tên", globalName, sizeof(globalName));
 			ImGui::SameLine();
-			if (ImGui::Button("Save"))
+			if (ImGui::Button("Lưu"))
 			{
 				curGlobal.name = globalName;
 				SaveGlobal(curGlobal);
 			}
 			ImGui::SameLine();
-			if (ImGui::Button("Delete"))
+			if (ImGui::Button("Xóa"))
 			{
 				curGlobal.name = globalName;
 				DeleteGlobal(curGlobal);

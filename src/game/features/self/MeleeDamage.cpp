@@ -101,5 +101,5 @@ namespace YimMenu::Features
 	static MeleeDamage _MeleeDamage{
 	    "meleedamage",
 	    "Melee Damage",
-	    "Allows altering your melee damage output"};
+	    "Tùy chỉnh sức mạnh đánh cận chiến"};
 }

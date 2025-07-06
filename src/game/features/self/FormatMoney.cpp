@@ -47,7 +47,7 @@ namespace YimMenu::Features
 		}
 	};
 
-	static FormatMoney _FormatMoney{"formatmoney", "Format Money", "Formats HUD money with commas."};
+	static FormatMoney _FormatMoney{"formatmoney", "Định dạng tiền", "Số tiền trên màn hình sẽ được ngăn bằng dấu phẩy"};
 
 	static void FormatIntHook(int64_t integer, char* str, size_t strSize, bool insertCommas)
 	{

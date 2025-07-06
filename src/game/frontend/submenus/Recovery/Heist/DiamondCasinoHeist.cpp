@@ -4,13 +4,13 @@ namespace YimMenu::Submenus
 {
 	std::shared_ptr<TabItem> RenderDiamondCasinoHeistMenu()
 	{
-		auto tab = std::make_shared<TabItem>("Diamond Casino Heist");
+		auto tab = std::make_shared<TabItem>("Phi vụ cướp Diamond Casino");
 
-		auto cuts = std::make_shared<Group>("Heist Cuts", 2);
-		auto setups1 = std::make_shared<Group>("Heist Setups");
+		auto cuts = std::make_shared<Group>("Phần chia tiền phi vụ", 2);
+		auto setups1 = std::make_shared<Group>("Chuẩn bị phi vụ");
 		auto setups2 = std::make_shared<Group>("");
-		auto loots = std::make_shared<Group>("Loots");
-		auto misc = std::make_shared<Group>("Misc", 1);
+		auto loots = std::make_shared<Group>("Chiến lợi phẩm");
+		auto misc = std::make_shared<Group>("Linh tinh", 1);
 
 		cuts->AddItem(std::make_shared<IntCommandItem>("diamondcasinoheistcut1"_J));
 		cuts->AddItem(std::make_shared<IntCommandItem>("diamondcasinoheistcut3"_J));

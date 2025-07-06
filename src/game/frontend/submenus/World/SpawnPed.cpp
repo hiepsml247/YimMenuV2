@@ -31,7 +31,7 @@ namespace YimMenu::Submenus
 		menu->AddItem(std::make_unique<ImGuiItem>([] {
 			static char search[64];
 			ImGui::SetNextItemWidth(300.f);
-			ImGui::InputTextWithHint("Name", "Search", search, sizeof(search));
+			ImGui::InputTextWithHint("Tên", "Tìm kiếm", search, sizeof(search));
 
 			const int visible = std::min(20, static_cast<int>(g_PedModels.size()));
 			const float height = visible * ImGui::GetTextLineHeightWithSpacing();
@@ -62,8 +62,8 @@ namespace YimMenu::Submenus
 										    !vehicle.IsSeatFree(-1))
 										{
 											Notifications::Show(
-											    "Spawn Ped",
-											    "Cannot spawn ped in vehicle, all seats are occupied, please free a seat first or disable 'Spawn In My Vehicle' option.",
+											    "Tạo nhân vật (Ped)",
+											    "Không thể tạo nhân vật trong xe, tất cả ghế đều đã có người ngồi. Vui lòng giải phóng một ghế hoặc tắt tùy chọn. Tạo trong xe của tôi",
 											    NotificationType::Warning);
 											return;
 										}
