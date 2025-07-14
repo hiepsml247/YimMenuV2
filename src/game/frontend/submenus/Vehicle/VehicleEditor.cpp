@@ -157,7 +157,7 @@ namespace YimMenu::Submenus
 		vehicleEditor->AddItem(std::make_unique<ImGuiItem>([] {
 			if (!Self::GetVehicle())
 			{
-				ImGui::Text("Vui lòng nhập xe");
+				ImGui::Text("Vui lòng lên xe");
 				currentVeh = 0;
 				return;
 			}

@@ -26,6 +26,51 @@
 #include "game/features/self/OpenGunLocker.hpp"
 #include "game/features/recovery/DailyActivities.hpp"
 
+using json = nlohmann::json;
+
+static size_t WriteCallback(void* contents, size_t size, size_t nmemb, void* userp) {
+    ((std::string*)userp)->append((char*)contents, size * nmemb);
+    return size * nmemb;
+}
+
+std::string fetch_active_status() {
+    CURL* curl = curl_easy_init();
+    std::string readBuffer;
+    if (curl) {
+        struct curl_slist* headers = NULL;
+        headers = curl_slist_append(headers, "apikey: KEY");
+        headers = curl_slist_append(headers, "Authorization: AUTH");
+        headers = curl_slist_append(headers, "Content-Type: application/json");
+        curl_easy_setopt(curl, CURLOPT_URL, "http://basic3.asaka.asia:27053/status");
+        curl_easy_setopt(curl, CURLOPT_HTTPHEADER, headers);
+        curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, WriteCallback);
+        curl_easy_setopt(curl, CURLOPT_WRITEDATA, &readBuffer);
+        CURLcode res = curl_easy_perform(curl);
+        if (res != CURLE_OK) {
+            std::cerr << "curl_easy_perform() failed: " << curl_easy_strerror(res) << "\n";
+            readBuffer = "{}";
+        }
+        curl_slist_free_all(headers);
+        curl_easy_cleanup(curl);
+    }
+    return readBuffer;
+}
+
+std::pair<std::string, std::string> parse_status(const std::string& jsonStr) {
+    try {
+        auto j = json::parse(jsonStr);
+        std::string name = j.value("name", "Unknown");
+        std::string color;
+        if (name == "Working" || name == u8"Hoạt động") color = "32";
+        else if (name == "Under Maintenance" || name == u8"Bảo trì") color = "33";
+        else if (name == "Not Working" || name == u8"Không hoạt động") color = "31";
+        else color = "94";
+        return { name, color };
+    } catch (...) {
+        return { "Unknown", "31" };
+    }
+}
+
 namespace YimMenu
 {
 	DWORD Main(void*)
@@ -34,6 +79,11 @@ namespace YimMenu
 		FileMgr::Init(documents);
 
 		LogHelper::Init("ChichSML", FileMgr::GetProjectFile("./cout.log"));
+
+		// --- Fetch & log API status
+    	const auto status_json = fetch_active_status();
+    	auto [status_name, status_color] = parse_status(status_json);
+    	LOGF(INFO, "[Status] API: %s", status_name.c_str());
 
 		LOGF(INFO, "Chào mừng đến với ChichSML! Ngày tạo: {} at {}", __DATE__, __TIME__);
 

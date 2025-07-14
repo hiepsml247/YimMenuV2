@@ -19,7 +19,7 @@ namespace YimMenu::Submenus
 	{
 		auto tab = std::make_shared<TabItem>("Xe mới");
 
-		auto spawn = std::make_shared<Group>("Xuất xe");
+		auto spawn = std::make_shared<Group>("Triệu hồi xe");
 		auto settings = std::make_shared<Group>("Cài đặt");
 
 		static std::vector<std::string> vehicleNames{};
@@ -65,7 +65,7 @@ namespace YimMenu::Submenus
 			ImGui::InputTextWithHint("Tên", "Tìm kiếm", search, sizeof(search));
 
 			ImGui::SetNextItemWidth(300.f);
-			if (ImGui::BeginCombo("Loại", selectedClass == -1 ? "All" : g_VehicleClassNames[selectedClass]))
+			if (ImGui::BeginCombo("Loại", selectedClass == -1 ? "Tất cả" : g_VehicleClassNames[selectedClass]))
 			{
 				if (ImGui::Selectable("Tất cả", selectedClass == -1))
 				{
@@ -140,7 +140,7 @@ namespace YimMenu::Submenus
 	{
 		auto tab = std::make_shared<TabItem>("Xe cá nhân");
 
-		auto spawn = std::make_shared<Group>("Xuất xe");
+		auto spawn = std::make_shared<Group>("Gọi xe");
 		auto settings = std::make_shared<Group>("Cài đặt");
 
 		static std::string selectedGarageStr{""};
@@ -153,7 +153,7 @@ namespace YimMenu::Submenus
 
 			static char search[64];
 			ImGui::SetNextItemWidth(300.f);
-			ImGui::InputTextWithHint("Tên", "	Tìm kiếm", search, sizeof(search));
+			ImGui::InputTextWithHint("Tên", "Tìm kiếm", search, sizeof(search));
 
 			ImGui::SetNextItemWidth(300.f);
 			if (ImGui::BeginCombo("Ga ra", selectedGarageStr.empty() ? "All" : selectedGarageStr.c_str()))
