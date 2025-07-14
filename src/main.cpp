@@ -25,6 +25,7 @@
 #include "game/features/vehicle/SavePersonalVehicle.hpp"
 #include "game/features/self/OpenGunLocker.hpp"
 #include "game/features/recovery/DailyActivities.hpp"
+#include "json.hpp"
 
 using json = nlohmann::json;
 
