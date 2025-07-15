@@ -23,8 +23,7 @@ set_property(TARGET ${PROJECT_NAME} PROPERTY CXX_STANDARD 23)
 
 set_target_properties(${PROJECT_NAME} PROPERTIES OUTPUT_NAME "ChichSML")
 
-target_include_directories(${PROJECT_NAME} PUBLIC "${SRC_DIR}")
-target_precompile_headers(${PROJECT_NAME} PUBLIC "common.hpp")
+target_precompile_headers(${PROJECT_NAME} PUBLIC "${SRC_DIR}/common.hpp")
 
 add_compile_definitions(
     _CRT_SECURE_NO_WARNINGS
