@@ -1,4 +1,11 @@
-cmake_minimum_required(VERSION 3.20.x)
+cmake_minimum_required(VERSION 3.20)
+
+# Đảm bảo toolchain vcpkg được nhận ở bất cứ môi trường nào (dùng cả local và CI)
+if(DEFINED ENV{VCPKG_ROOT} AND EXISTS "$ENV{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake")
+    set(CMAKE_TOOLCHAIN_FILE "$ENV{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake" CACHE STRING "")
+elseif(EXISTS "${CMAKE_SOURCE_DIR}/vcpkg/scripts/buildsystems/vcpkg.cmake")
+    set(CMAKE_TOOLCHAIN_FILE "${CMAKE_SOURCE_DIR}/vcpkg/scripts/buildsystems/vcpkg.cmake" CACHE STRING "")
+endif()
 
 include(cmake/cross-compile.cmake)
 
@@ -43,7 +50,7 @@ target_include_directories(${PROJECT_NAME} PRIVATE
     "${minhook_SOURCE_DIR}/src/hde"
     "${luajit_SOURCE_DIR}/src"
     "${luajit_BINARY_DIR}/src"
-    ${CURL_INCLUDE_DIRS}  # <- Thêm include cho curl
+    # CURL_INCLUDE_DIRS thường không cần, nếu dùng target_link_libraries đúng kiểu modern
 )
 
 message(STATUS "Setting up linked libraries")
@@ -61,7 +68,7 @@ target_link_libraries(${PROJECT_NAME} PRIVATE
     gdi32
     libluajit
 
-    ${CURL_LIBRARIES}   # <- Thêm thư viện curl
+    CURL::libcurl   # <- Chuẩn modern cmake vcpkg, không phải ${CURL_LIBRARIES}
 )
 
 target_compile_options(${PROJECT_NAME} PRIVATE
