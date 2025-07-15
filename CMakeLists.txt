@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.20)
 
-# Đảm bảo toolchain vcpkg được nhận ở bất cứ môi trường nào (dùng cả local và CI)
+# Đảm bảo nhận đúng toolchain vcpkg trên mọi môi trường (local hoặc CI)
 if(DEFINED ENV{VCPKG_ROOT} AND EXISTS "$ENV{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake")
     set(CMAKE_TOOLCHAIN_FILE "$ENV{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake" CACHE STRING "")
 elseif(EXISTS "${CMAKE_SOURCE_DIR}/vcpkg/scripts/buildsystems/vcpkg.cmake")
@@ -18,14 +18,14 @@ include(cmake/json.cmake)
 include(cmake/minhook.cmake)
 include(cmake/luajit.cmake)
 
-# Tìm curl
-find_package(CURL REQUIRED)
+# Bắt buộc có curl (qua vcpkg), dùng chuẩn modern cmake
+find_package(CURL CONFIG REQUIRED)
 
 # source
 set(SRC_DIR "${PROJECT_SOURCE_DIR}/src")
 file(GLOB_RECURSE SRC_FILES
     "${SRC_DIR}/**.hpp"
-    "${SRC_DIR}/**.cpp"    
+    "${SRC_DIR}/**.cpp"
 )
 
 add_library(${PROJECT_NAME} MODULE ${SRC_FILES})
@@ -50,7 +50,6 @@ target_include_directories(${PROJECT_NAME} PRIVATE
     "${minhook_SOURCE_DIR}/src/hde"
     "${luajit_SOURCE_DIR}/src"
     "${luajit_BINARY_DIR}/src"
-    # CURL_INCLUDE_DIRS thường không cần, nếu dùng target_link_libraries đúng kiểu modern
 )
 
 message(STATUS "Setting up linked libraries")
@@ -68,7 +67,7 @@ target_link_libraries(${PROJECT_NAME} PRIVATE
     gdi32
     libluajit
 
-    CURL::libcurl   # <- Chuẩn modern cmake vcpkg, không phải ${CURL_LIBRARIES}
+    CURL::libcurl    # <- Dùng đúng target modern của vcpkg
 )
 
 target_compile_options(${PROJECT_NAME} PRIVATE
