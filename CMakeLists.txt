@@ -11,6 +11,9 @@ include(cmake/json.cmake)
 include(cmake/minhook.cmake)
 include(cmake/luajit.cmake)
 
+# Tìm curl
+find_package(CURL REQUIRED)
+
 # source
 set(SRC_DIR "${PROJECT_SOURCE_DIR}/src")
 file(GLOB_RECURSE SRC_FILES
@@ -40,6 +43,7 @@ target_include_directories(${PROJECT_NAME} PRIVATE
     "${minhook_SOURCE_DIR}/src/hde"
     "${luajit_SOURCE_DIR}/src"
     "${luajit_BINARY_DIR}/src"
+    ${CURL_INCLUDE_DIRS}  # <- Thêm include cho curl
 )
 
 message(STATUS "Setting up linked libraries")
@@ -56,6 +60,8 @@ target_link_libraries(${PROJECT_NAME} PRIVATE
     dwmapi
     gdi32
     libluajit
+
+    ${CURL_LIBRARIES}   # <- Thêm thư viện curl
 )
 
 target_compile_options(${PROJECT_NAME} PRIVATE
