@@ -22,6 +22,7 @@
 #include <unordered_set>
 
 #include <nlohmann/json.hpp>
+#include <curl/curl.h>
 
 using namespace al;
 #include "core/logger/LogHelper.hpp"

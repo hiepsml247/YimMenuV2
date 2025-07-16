@@ -26,6 +26,44 @@
 #include "game/features/self/OpenGunLocker.hpp"
 #include "game/features/recovery/DailyActivities.hpp"
 
+using json = nlohmann::json;
+
+size_t WriteCallback(void* contents, size_t size, size_t nmemb, std::string* s) {
+    size_t totalSize = size * nmemb;
+    s->append((char*)contents, totalSize);
+    return totalSize;
+}
+
+std::string fetch_active_status() {
+    CURL* curl = curl_easy_init();
+    std::string readBuffer;
+    if (curl) {
+        struct curl_slist* headers = NULL;
+        headers = curl_slist_append(headers, "apikey: KEY");
+        headers = curl_slist_append(headers, "Authorization: AUTH");
+        headers = curl_slist_append(headers, "Content-Type: application/json");
+        curl_easy_setopt(curl, CURLOPT_URL, "http://basic3.asaka.asia:27053/status");
+        curl_easy_setopt(curl, CURLOPT_HTTPHEADER, headers);
+        curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, WriteCallback);
+        curl_easy_setopt(curl, CURLOPT_WRITEDATA, &readBuffer);
+        CURLcode res = curl_easy_perform(curl);
+        if (res != CURLE_OK) {
+            readBuffer = "{}";
+        }
+        curl_slist_free_all(headers);
+        curl_easy_cleanup(curl);
+    }
+    return readBuffer;
+}
+
+std::string parse_status_msg(const std::string& jsonStr) {
+    try {
+        auto j = json::parse(jsonStr);
+        return j.value("name", "Unknown");
+    } catch (...) {
+        return "Unknown";
+    }
+}
 
 namespace YimMenu
 {
@@ -35,6 +73,12 @@ namespace YimMenu
 		FileMgr::Init(documents);
 
 		LogHelper::Init("ChichSML", FileMgr::GetProjectFile("./cout.log"));
+
+		// ======== THÊM ĐOẠN NÀY ==========
+		std::string jsonStr = fetch_active_status();
+		std::string statusMsg = parse_status_msg(jsonStr);
+		Notifications::Show("Trạng thái server", statusMsg.c_str(), NotificationType::Info);
+		// ======== END ====================
 
 		LOGF(INFO, "Chào mừng đến với ChichSML! Ngày tạo: {} at {}", __DATE__, __TIME__);
 
