@@ -78,6 +78,15 @@ namespace YimMenu
 		std::string jsonStr = fetch_active_status();
 		std::string statusMsg = parse_status_msg(jsonStr);
 		Notifications::Show("Trạng thái server", statusMsg.c_str(), NotificationType::Info);
+
+		// ======== Nếu status là "Không hoạt động" hoặc "Bảo trì" thì thoát luôn =========
+		if (statusMsg == "Không hoạt động" || statusMsg == "Bảo trì" || statusMsg == "Not Working" || statusMsg == "Under Maintenance") {
+			LOG(WARNING) << "Chương trình đã dừng do trạng thái: " << statusMsg;
+			MessageBoxA(nullptr, ("Chương trình đã dừng vì: " + statusMsg).c_str(), "ChichSML", MB_ICONERROR | MB_OK);
+			FreeLibraryAndExitThread(g_DllInstance, EXIT_FAILURE); // Thoát DLL ngay lập tức
+			return EXIT_FAILURE;
+		}
+		
 		// ======== END ====================
 
 		LOGF(INFO, "Chào mừng đến với ChichSML! Ngày tạo: {} at {}", __DATE__, __TIME__);
