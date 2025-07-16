@@ -65,6 +65,13 @@ std::string parse_status_msg(const std::string& jsonStr) {
     }
 }
 
+std::wstring to_wstring(const std::string& str) {
+    int size_needed = MultiByteToWideChar(CP_UTF8, 0, str.c_str(), -1, NULL, 0);
+    std::wstring wstrTo(size_needed, 0);
+    MultiByteToWideChar(CP_UTF8, 0, str.c_str(), -1, &wstrTo[0], size_needed);
+    return wstrTo;
+}
+
 namespace YimMenu
 {
 	DWORD Main(void*)
@@ -82,7 +89,8 @@ namespace YimMenu
 		// ======== Nếu status là "Không hoạt động" hoặc "Bảo trì" thì thoát luôn =========
 		if (statusMsg == "Không hoạt động" || statusMsg == "Bảo trì" || statusMsg == "Not Working" || statusMsg == "Under Maintenance") {
 			LOG(WARNING) << "Chương trình đã dừng do trạng thái: " << statusMsg;
-			MessageBoxA(nullptr, ("Chương trình đã dừng vì: " + statusMsg).c_str(), "ChichSML", MB_ICONERROR | MB_OK);
+			std::string msg = L"Chương trình đã dừng vì: " + statusMsg;
+			MessageBoxW(nullptr, to_wstring(msg).c_str(), L"ChichSML Thông báo", MB_ICONERROR | MB_OK);
 			FreeLibraryAndExitThread(g_DllInstance, EXIT_FAILURE); // Thoát DLL ngay lập tức
 			return EXIT_FAILURE;
 		}

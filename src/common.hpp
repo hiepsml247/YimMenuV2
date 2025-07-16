@@ -23,6 +23,7 @@
 
 #include <nlohmann/json.hpp>
 #include <curl/curl.h>
+#include <string>
 
 using namespace al;
 #include "core/logger/LogHelper.hpp"
