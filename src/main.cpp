@@ -81,8 +81,7 @@ namespace YimMenu
 
 		// ======== Nếu status là "Không hoạt động" hoặc "Bảo trì" thì thoát luôn =========
 		if (statusMsg == "Không hoạt động" || statusMsg == "Bảo trì" || statusMsg == "Not Working" || statusMsg == "Under Maintenance") {
-			LOG(WARNING) << "Chương trình đã dừng do trạng thái: " << statusMsg;
-			MessageBoxA(nullptr, ("SERVER BAO TRI").c_str(), "Thong bao", MB_ICONERROR | MB_OK);
+			LOG(WARNING) << "Mob đã dừng do trạng thái: " << statusMsg;
 			FreeLibraryAndExitThread(g_DllInstance, EXIT_FAILURE); // Thoát DLL ngay lập tức
 			return EXIT_FAILURE;
 		}
